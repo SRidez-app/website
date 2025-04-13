@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #333;
+  background-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Header styles */
+header {
+  font-family: 'Outfit', sans-serif;
+}
+
+button {
+  font-family: inherit;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+.heading-style-h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+}
+
+@media screen and (max-width: 991px) {
+  .heading-style-h1 {
+    font-size: 38px;
+    line-height: 44px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .heading-style-h1 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+/* Footer styles */
+.heading-cta {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0;
+  text-align: left;
+}
+
+.heading-cta span {
+  display: inline;
+  white-space: nowrap;
+}
+
+.header-heading-span.discord {
+  color: #5865F2;
+}
+
+.text-size-medium {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.text-color-secondary {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.padding-global {
+  padding: 2.5rem 5%;
+}
+
+.container-large {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.padding-section-large {
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+}
+
+.bottom-small {
+  padding-bottom: 3.75rem;
+}
+
+.max-width-large {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 991px) {
+  .heading-cta {
+    font-size: 2rem;
+  }
+  
+  .padding-section-large {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .heading-cta {
+    font-size: 1.75rem;
+  }
+  
+  .padding-section-large {
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+  }
+  
+  .bottom-small {
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* Footer additional styles */
+.footer-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.footer-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
