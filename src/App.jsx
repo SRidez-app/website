@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Pricing from './components/Pricing';
+import Testimonials from './components/Testimonials';
 import './index.css';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Hero />
              <Features /> 
             <Pricing />
+            <Testimonials />
           </div>
         } />
         <Route path="/pricing" element={<Pricing />} />
