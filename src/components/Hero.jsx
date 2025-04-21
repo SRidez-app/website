@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import hero from '../assets/hero.png';
+
 const Hero = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -61,20 +62,20 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#121212]">
       {/* Background grid and gradient effects */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage: `
             linear-gradient(153deg, rgba(0, 0, 0, 0.67), transparent 100%),
-            linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px), 
-            linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(151deg, #292929, #000 16%, rgba(116, 93, 9, 0.79) 38%, #b4d600 57%, #242a00 76%, #000 96%)
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(151deg, #121212, #000 16%, rgba(0, 191, 255, 0.3) 38%, #00BFFF 57%, #004766 76%, #000 96%)
           `,
           backgroundPosition: '0 0, 0 0, 0 0',
-          backgroundSize: 'auto, 40px 40px, auto',
-          backgroundRepeat: 'no-repeat, repeat, no-repeat',
+          backgroundSize: 'auto, 40px 40px, 40px 40px, auto',
+          backgroundRepeat: 'no-repeat, repeat, repeat, no-repeat',
         }}
       />
 
@@ -106,20 +107,19 @@ const Hero = () => {
 
           {/* Improved Email Input and Button for Mobile */}
           <div className="w-full max-w-lg">
-  {/* Works the same on ALL screen sizes */}
-  <div className="flex items-center gap-2 sm:gap-4 w-full bg-[#4A4A4A]/50 backdrop-blur-sm rounded-full p-1">
-    <div className="flex-1 min-w-0"> {/* Added min-w-0 to prevent overflow */}
-      <input
-        type="email"
-        placeholder="Enter your Email"
-        className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-transparent border-none rounded-full text-white placeholder-[#A0A0A0] focus:outline-none text-sm sm:text-base"
-      />
-    </div>
-    <button className="px-4 sm:px-8 py-3 sm:py-4 bg-white rounded-full text-black text-sm sm:text-base font-medium hover:bg-white/90 transition-colors whitespace-nowrap shrink-0">
-      Get Started
-    </button>
-  </div>
-</div>
+            <div className="flex items-center gap-2 sm:gap-4 w-full bg-[#4A4A4A]/50 backdrop-blur-sm rounded-full p-1">
+              <div className="flex-1 min-w-0">
+                <input
+                  type="email"
+                  placeholder="Enter your Email"
+                  className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-transparent border-none rounded-full text-white placeholder-[#A0A0A0] focus:outline-none text-sm sm:text-base"
+                />
+              </div>
+              <button className="px-4 sm:px-8 py-3 sm:py-4 bg-white rounded-full text-black text-sm sm:text-base font-medium hover:bg-white/90 transition-colors whitespace-nowrap shrink-0">
+                Get Started
+              </button>
+            </div>
+          </div>
 
           {/* Discord Screenshot with 3D Effect */}
           <div className="mt-16 w-full max-w-5xl" style={{ perspective: '2000px' }}>
@@ -141,7 +141,8 @@ const Hero = () => {
               <div 
                 className="absolute inset-0"
                 style={{
-                  background: 'linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 50%, transparent 100%)',
+                  background: 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
+                  backgroundSize: '40px 40px',
                   mixBlendMode: 'overlay',
                   pointerEvents: 'none',
                 }}
@@ -152,8 +153,8 @@ const Hero = () => {
       </div>
 
       {/* Floating gradient orbs */}
-      <div className="absolute top-1/4 -left-20 w-60 h-60 bg-gradient-to-br from-[#b4d600] to-[#242a00] rounded-full blur-[100px] opacity-20"></div>
-      <div className="absolute bottom-1/4 -right-20 w-60 h-60 bg-gradient-to-br from-[#b4d600] to-[#242a00] rounded-full blur-[100px] opacity-20"></div>
+      <div className="absolute top-1/4 -left-20 w-60 h-60 bg-gradient-to-br from-[#00BFFF] to-[#004766] rounded-full blur-[100px] opacity-20"></div>
+      <div className="absolute bottom-1/4 -right-20 w-60 h-60 bg-gradient-to-br from-[#00BFFF] to-[#004766] rounded-full blur-[100px] opacity-20"></div>
     </section>
   );
 };

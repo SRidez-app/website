@@ -1,27 +1,27 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const TestimonialCard = ({ name, company, content }) => {
   return (
-    <div className="bg-[rgba(255,255,255,0.03)] backdrop-blur-[2px] rounded-[20px] p-6 md:p-8 transition-all duration-500 hover:bg-[rgba(255,255,255,0.05)]">
-      <div className="flex mb-4">
+    <div className="bg-[rgba(255,255,255,0.03)] backdrop-blur-[2px] rounded-[20px] p-4 transition-all duration-500 hover:bg-[rgba(255,255,255,0.05)]">
+      <div className="flex mb-3">
         {[...Array(5)].map((_, i) => (
-          <svg key={i} className="w-5 h-5 text-[#00BFFF]" fill="currentColor" viewBox="0 0 20 20">
+          <svg key={i} className="w-4 h-4 text-[#00BFFF]" fill="currentColor" viewBox="0 0 20 20">
             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
           </svg>
         ))}
       </div>
-      <p className="text-white text-base md:text-lg mb-6 md:mb-8 leading-relaxed">{content}</p>
+      <p className="text-white text-sm leading-relaxed mb-4">{content}</p>
       <div className="flex items-center">
-        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden bg-[rgba(255,255,255,0.1)]">
+        <div className="w-8 h-8 rounded-full overflow-hidden bg-[rgba(255,255,255,0.1)]">
           <img
             src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${name}`}
             alt={name}
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="ml-3 md:ml-4">
-          <h4 className="text-white font-medium text-sm md:text-base">{name}</h4>
-          <p className="text-[#999999] text-xs md:text-sm">{company}</p>
+        <div className="ml-2">
+          <h4 className="text-white font-medium text-xs">{name}</h4>
+          <p className="text-[#999999] text-xs">{company}</p>
         </div>
       </div>
     </div>
@@ -49,6 +49,31 @@ const Testimonials = () => {
   const targetY = useRef(0);
   const currentY = useRef(0);
   const animationFrame = useRef();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.2 // Start animation when 20% of the section is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,18 +84,11 @@ const Testimonials = () => {
       const sectionRect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const gridHeight = grid.scrollHeight;
-      const sectionHeight = sectionRect.height;
       
-      // Only animate when section is in view
       if (sectionRect.top < windowHeight && sectionRect.bottom > 0) {
-        const scrollProgress = Math.min(
-          1,
-          Math.max(0, (windowHeight - sectionRect.top) / (sectionHeight + windowHeight))
-        );
-        
-        // Reduce the scroll amount for smoother movement
-        const maxTranslate = Math.max(0, gridHeight - 800); // Increased visible area
-        targetY.current = -(scrollProgress * maxTranslate * 0.8); // Reduced scroll amount
+        const scrollProgress = (windowHeight - sectionRect.top) / windowHeight;
+        const maxScroll = gridHeight - 400;
+        targetY.current = -Math.max(0, Math.min(maxScroll, scrollProgress * maxScroll));
       }
     };
 
@@ -78,62 +96,72 @@ const Testimonials = () => {
       const grid = gridRef.current;
       if (!grid) return;
       
-      // Slower, smoother lerp
-      const ease = 0.05; // Reduced from 0.08 for smoother movement
+      const ease = 0.1;
       currentY.current += (targetY.current - currentY.current) * ease;
       
-      // Round to prevent sub-pixel rendering
       const roundedY = Math.round(currentY.current * 100) / 100;
       grid.style.transform = `translateY(${roundedY}px)`;
       
       animationFrame.current = requestAnimationFrame(animate);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     animationFrame.current = requestAnimationFrame(animate);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      cancelAnimationFrame(animationFrame.current);
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current);
+      }
     };
   }, []);
 
   return (
     <section 
       ref={sectionRef} 
-      className="h-[100vh] md:h-[120vh] relative overflow-hidden bg-gradient-to-b from-black via-[#004766] to-black"
+      className="relative overflow-hidden h-[650px]"
+      style={{
+        background: 'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,71,102,0.9) 70%, rgba(0,0,0,1) 100%)'
+      }}
     >
+      {/* Background grid pattern */}
       <div className="absolute inset-0" style={{
         backgroundImage: `
-          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.5px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1.5px)
         `,
         backgroundSize: '40px 40px'
       }} />
 
-      <div className="container mx-auto px-4 relative z-10 h-full flex items-center">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-20 max-w-[1400px] mx-auto w-full">
+      {/* Top fade shadow */}
+      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black via-black/80 to-transparent z-10" />
+
+      <div className="container mx-auto px-4 relative z-20 h-full flex items-center">
+        <div className="h-full flex flex-col lg:grid lg:grid-cols-[35%_65%] lg:gap-12 max-w-[1200px] mx-auto w-full">
           {/* Left side - Heading and text */}
-          <div className="text-center lg:text-left lg:sticky lg:top-1/4">
-            <h2 className="text-[40px] md:text-[56px] font-medium text-white mb-4 md:mb-6 leading-tight">
-              Customer testimonials
-            </h2>
-            <p className="text-[#999999] text-lg md:text-xl max-w-md mx-auto lg:mx-0 mb-6 md:mb-8">
-              Discover what our community members have to say about their experience.
-            </p>
-            <button className="px-8 py-3 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all text-base">
-              Try it yourself
-            </button>
+          <div className="flex flex-col justify-center items-center lg:items-start h-full">
+            <div>
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-medium text-white mb-3 leading-tight text-center lg:text-left">
+                Customer testimonials
+              </h2>
+              <p className="text-[#999999] text-sm sm:text-base max-w-md mx-auto lg:mx-0 mb-4 text-center lg:text-left">
+                Discover what our community members have to say about their experience.
+              </p>
+              <button className="px-4 py-1.5 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all text-sm inline-block mx-auto lg:mx-0">
+                Try it yourself
+              </button>
+            </div>
           </div>
 
-          {/* Right side - Parallax testimonial grid */}
-          <div className="relative min-h-[600px]">
-            <div
+          {/* Right side - Reviews grid */}
+          <div className="flex-1 lg:flex-none relative mt-8 lg:mt-0 overflow-hidden h-full">
+            <div 
               ref={gridRef}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 absolute top-0 left-0 w-full"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3 absolute top-0 left-0 w-full"
               style={{ 
                 willChange: 'transform',
-                transition: 'transform 0.05s linear'
+                transition: 'transform 0.1s ease-out'
               }}
             >
               {testimonials.map((testimonial, index) => (
@@ -143,8 +171,23 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
+
+      {/* Bottom fade shadow */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/80 to-transparent z-10" />
     </section>
   );
 };
 
-export default Testimonials; 
+export default Testimonials;
+
+// Add this to your global CSS
+/*
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+*/ 
+

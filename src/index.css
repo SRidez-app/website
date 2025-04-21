@@ -15,6 +15,7 @@ body {
   min-height: 100vh;
 }
 
+
 /* Header styles */
 header {
   font-family: 'Outfit', sans-serif;
@@ -166,4 +167,14 @@ button:hover {
   .footer-grid {
     grid-template-columns: repeat(1, 1fr);
   }
+}
+
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

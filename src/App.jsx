@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Features from './components/Features';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
+import Notification from './components/Notification';
 import './index.css';
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
         <Route path="/" element={
           <div className="flex flex-col min-h-screen bg-background">
             <Hero />
-             <Features /> 
+            <Features />
+            <Notification />
             <Pricing />
             <Testimonials />
           </div>

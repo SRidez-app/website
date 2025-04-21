@@ -9,15 +9,15 @@ const PriceCard = ({ title, price, features, isHighlighted = false, isYearly }) 
     }`}>
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-[22px] text-white font-medium">{title}</h3>
-        <div className="w-8 h-8">
+        {/* <div className="w-8 h-8">
           <img src="/logo-icon.svg" alt="" className="w-full h-full object-contain opacity-80" />
-        </div>
+        </div> */}
       </div>
       <div className="mb-8">
         {typeof price === 'number' ? (
           <div className="flex items-baseline gap-1">
             <span className="text-[40px] font-medium text-white">
-              ${price}
+              ${isYearly ? price * 10 : price}
             </span>
             <span className="text-[#999999] text-base">/mo</span>
           </div>
@@ -60,7 +60,7 @@ const Pricing = () => {
     },
     {
       title: "Pro Plan",
-      price: isYearly ? 290 : 29,
+      price: 29,
       features: [
         "Community Roundups",
         "Developer Networking",
@@ -86,7 +86,6 @@ const Pricing = () => {
 
   return (
     <section className="py-24 bg-black relative overflow-hidden">
-      {/* Background grid effect */}
       <div className="absolute inset-0" style={{
         backgroundImage: `
           linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),

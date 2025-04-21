@@ -9,14 +9,16 @@ const FeatureCard = ({ title, description, icon }) => {
         style={{
           backgroundImage: `
             radial-gradient(circle farthest-corner at 50% 50%, transparent, transparent 11%, #000 75%),
-            linear-gradient(151deg, #000, #000 4%, #d6fe00 22%, #d6fe00 57%, #000 100%)
+            linear-gradient(151deg, #000, #000 4%, rgb(0,191,255) 22%, rgb(0,191,255) 57%, #000 100%)
           `,
           backgroundPosition: '0 0, 0 0',
           backgroundSize: 'auto, auto',
-          borderRadius: '100rem', // Circular shape
-          padding: '1rem', // Matches the inspected CSS
-          boxShadow: '0 0 20px rgba(212, 254, 0, 0.5)', // Glow effect from previous requirement
+          borderRadius: '100rem',
+          padding: '1rem',
+          boxShadow: '0 0 20px rgba(0, 191, 255, 0.5)', // Blue glow
         }}
+        
+
       >
         {/* Ensure the icon is black */}
         <div className="text-black">{icon}</div>
