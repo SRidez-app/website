@@ -11,26 +11,35 @@ import logo from '../assets/logo.png';
 
 const Footer = () => {
   const columnOne = [
-    { name: 'Visit timber media', href: '#' },
-    { name: 'See all Templates', href: '#' },
-    { name: 'Buy Template', href: '#' },
+    { name: 'What is Seat Ridez? ', href: '#' },
+    { name: 'Why Choose Us? ', href: '#' },
+    { name: 'How It Works ', href: '#' },
+    { name: 'Our Story', href: '#' },
   ];
 
   const sitemap = [
-    { name: 'Home', href: '#' },
-    { name: 'Pricing', href: '#' },
-    { name: 'Updates', href: '#' },
-    { name: 'Support', href: '#' },
-    { name: 'Join Now', href: '#' },
+    { name: 'Accounts & Payments ', href: '#' },
+    { name: 'Safety & Security ', href: '#' },
+    { name: 'Legal & Compliance ', href: '#' },
+    { name: 'Privacy & User Conduct ', href: '#' },
+   
   ];
 
-  const socialLinks = [
-    { name: 'Facebook', href: '#', icon: faFacebookF },
-    { name: 'Instagram', href: '#', icon: faInstagram },
-    { name: 'X', href: '#', icon: faTwitter },
-    { name: 'LinkedIn', href: '#', icon: faLinkedinIn },
-    { name: 'YouTube', href: '#', icon: faYoutube },
+  const socialLinks= [
+    { name: 'Data Collection & Use  ', href: '#' },
+    { name: 'Your Privacy Rights  ', href: '#' },
+    { name: 'Security & Retention  ', href: '#' },
+    { name: 'Policy & Compliance  ', href: '#' },
+   
   ];
+
+  // const socialLinks = [
+  //   { name: 'Facebook', href: '#', icon: faFacebookF },
+  //   { name: 'Instagram', href: '#', icon: faInstagram },
+  //   { name: 'X', href: '#', icon: faTwitter },
+  //   { name: 'LinkedIn', href: '#', icon: faLinkedinIn },
+  //   { name: 'YouTube', href: '#', icon: faYoutube },
+  // ];
 
   return (
     <footer className="bg-black text-white relative">
@@ -112,8 +121,8 @@ const Footer = () => {
 
           {/* Column One */}
           <div>
-            <h4 className="text-sm font-medium mb-6 uppercase tracking-wide">
-              Column One
+            <h4 className="text-sm text-lg md:text-lg font-medium mb-6 uppercase tracking-wide">
+              About Us
             </h4>
             <ul className="space-y-3">
               {columnOne.map((item) => (
@@ -131,8 +140,8 @@ const Footer = () => {
 
           {/* Sitemap - Separate Column */}
           <div>
-            <h4 className="text-sm font-medium mb-6 uppercase tracking-wide">
-              Sitemap
+            <h4 className="text-sm text-lg md:text-lg font-medium mb-6 uppercase tracking-wide">
+            Terms and Condtions 
             </h4>
             <ul className="space-y-3">
               {sitemap.map((item) => (
@@ -150,8 +159,8 @@ const Footer = () => {
 
           {/* Follow Us - Separate Column */}
           <div>
-            <h4 className="text-sm font-medium mb-6 uppercase tracking-wide">
-              Follow us
+            <h4 className="text-sm  text-lg md:text-lg font-medium mb-6 uppercase tracking-wide">
+            Privacy Policy 
             </h4>
             <ul className="space-y-3">
               {socialLinks.map((item) => (

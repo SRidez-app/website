@@ -2,7 +2,7 @@ import React from 'react';
 
 const FeatureCard = ({ title, description, icon }) => {
   return (
-    <div className="text-center p-6 transition-all duration-300 h-full">
+    <div className="flex flex-col items-center justify-start text-center p-6 transition-all duration-300 h-full">
       {/* Icon with gradient background */}
       <div
         className="w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto relative"
@@ -17,14 +17,14 @@ const FeatureCard = ({ title, description, icon }) => {
           padding: '1rem',
           boxShadow: '0 0 20px rgba(0, 191, 255, 0.5)', // Blue glow
         }}
-        
-
       >
-        {/* Ensure the icon is black */}
         <div className="text-black">{icon}</div>
       </div>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-gray-400 text-sm leading-relaxed">{description}</p>
+      {/* Fixed height for title area for alignment */}
+      <div style={{ minHeight: 56, display: 'flex', alignItems: 'center', justifyContent: 'center' }} className="w-full">
+        <h3 className="text-xl font-semibold mb-3 flex-shrink-0 w-full">{title}</h3>
+      </div>
+      <p className="text-gray-400 text-sm text-lg md:text-lg text-white/70 leading-relaxed flex-grow">{description}</p>
     </div>
   );
 };
@@ -32,51 +32,60 @@ const FeatureCard = ({ title, description, icon }) => {
 const Features = () => {
   const features = [
     {
-      title: 'Help Forum',
+      title: 'Your Ride, Your Rules',
       description:
-        'Get answers to your questions quickly in our Help Forum. Connect with experienced Webflow users, troubleshoot issues, and find solutions to enhance your projects.',
+        'Set your price, choose who you ride with, and even select driver/passenger gender for a more comfortable experience.',
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="currentColor" // This will inherit the black color from the parent
-        >
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m1 17h-2v-2h2zm2.07-7.75l-.9.92c-.5.51-.86.97-1.04 1.69c-.08.32-.13.68-.13 1.14h-2v-.5a3.997 3.997 0 0 1 1.17-2.83l1.24-1.26c.46-.44.68-1.1.55-1.8a1.99 1.99 0 0 0-1.39-1.53c-1.11-.31-2.14.32-2.47 1.27c-.12.37-.43.65-.82.65h-.3C8.4 9 8 8.44 8.16 7.88a4.008 4.008 0 0 1 3.23-2.83c1.52-.24 2.97.55 3.87 1.8c1.18 1.63.83 3.38-.19 4.4" />
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="13" />
+          <circle cx="12" cy="16" r="1.2" fill="currentColor" />
         </svg>
       ),
     },
     {
-      title: 'Show and Tell',
+      title: 'Safety & Trust',
       description:
-        'Showcase your latest projects and see what others in the community are creating. Get inspired, receive feedback, and celebrate your achievements in our "Show and Tell" section.',
+        'View profiles, ratings, and reviews before booking—know exactly who you\'re riding with.',
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="currentColor" // This will inherit the black color from the parent
-        >
-          <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5M12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5s5 2.24 5 5s-2.24 5-5 5m0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3s3-1.34 3-3s-1.34-3-3-3" />
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <ellipse cx="12" cy="12" rx="8" ry="6" />
+          <circle cx="12" cy="12" r="2.5" fill="currentColor" />
         </svg>
       ),
     },
     {
-      title: 'Looking for work',
+      title: 'Fair, Flexible Pricing',
       description:
-        'Searching for your next project or job opportunity? Explore our "Looking for Work" section to connect with potential clients and employers. Showcase your skills and find new freelance gigs.',
+        'No fixed rates or hidden fees. Pay what works for you.',
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="currentColor" // This will inherit the black color from the parent
-        >
-          <path d="M18 11c1.49 0 2.87.47 4 1.26V8c0-1.11-.89-2-2-2h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h7.68A6.995 6.995 0 0 1 18 11m-8-7h4v2h-4z" />
-          <path d="M18 13c-2.76 0-5 2.24-5 5s2.24 5 5 5s5-2.24 5-5s-2.24-5-5-5m1.65 7.35L17.5 18.2V15h1v2.79l1.85 1.85z" />
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 17l-2.5-2.5M12 17l2.5-2.5M12 17v-4" />
+          <path d="M19 12v-2a2 2 0 0 0-2-2h-2.5a2 2 0 0 0-1.5.67l-1 1.16a2 2 0 0 1-3 0l-1-1.16A2 2 0 0 0 5.5 8H3a2 2 0 0 0-2 2v2" />
+          <path d="M2 12v2a2 2 0 0 0 2 2h2.5a2 2 0 0 0 1.5-.67l1-1.16a2 2 0 0 1 3 0l1 1.16A2 2 0 0 0 16.5 16H19a2 2 0 0 0 2-2v-2" />
+        </svg>
+      ),
+    },
+    {
+      title: 'In-App Messaging',
+      description:
+        'Chat with riders and drivers securely—no need to share personal contact info.',
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="5" width="18" height="14" rx="3" />
+          <path d="M7 10h10M7 14h6" />
+        </svg>
+      ),
+    },
+    {
+      title: 'Real-Time Matching',
+      description:
+        'Get paired with people who share your music taste, hobbies, and vibe.',
+      icon: (
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="8" cy="12" r="3" />
+          <circle cx="16" cy="12" r="3" />
+          <path d="M8 15v2M16 15v2" />
         </svg>
       ),
     },
@@ -94,25 +103,22 @@ const Features = () => {
         }}
       ></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         {/* Header Section */}
         <div className="text-center mb-12">
           <p className="text-sm uppercase tracking-wider mb-2 text-gray-400">
             FEATURES
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-            Where Developers Learn, Share &<br />Build Careers
+          Why Seat Ridez?
           </h2>
-          <p className="text-gray-400 text-base max-w-3xl mx-auto">
-            Dive into a dynamic community where developers exchange knowledge,
-            showcase their work, and advance their careers. Whether you're a
-            beginner or a seasoned pro, find resources, mentorship, and
-            opportunities to grow and succeed in the Webflow ecosystem.
+          <p className="text-gray-400  text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
+          Because your ride should reflect you. We've built features that prioritize your comfort, safety, and freedom—so every ride feels just right..
           </p>
         </div>
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}

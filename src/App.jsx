@@ -6,6 +6,7 @@ import Features from './components/Features';
 import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import Notification from './components/Notification';
+import HowItWorks from './components/HowItWorks';
 import './index.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <div className="flex flex-col min-h-screen bg-background">
             <Hero />
             <Features />
+            <HowItWorks />
             <Notification />
             <Pricing />
             <Testimonials />

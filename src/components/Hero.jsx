@@ -91,18 +91,17 @@ const Hero = () => {
           </div>
 
           <h1 className="heading-style-h1 text-white mb-6" style={headingStyle}>
-            Enhance Your Productivity
+          Affordable Rides
             <br />
-            with the Ultimate Webflow
+            Anywhere!
             <br />
-            Community
           </h1>
 
           <p className="text-lg md:text-xl text-white/70 mb-12 max-w-3xl leading-relaxed">
-            Join a vibrant network of Webflow enthusiasts and experts. Get
-            real-time support, share your projects, and discover tips and tricks
-            to maximize your Webflow experience. Connect, collaborate, and
-            elevate your productivity today!
+          Join the carpooling community that puts you in control. 
+          <br />
+          With Seat Ridez, you skip the surge pricing and ride on your terms. Set your own price, choose driver and passenger genders, and match based on preferences that matter to you. This is carpooling, reimagined.
+          <br />
           </p>
 
           {/* Improved Email Input and Button for Mobile */}
