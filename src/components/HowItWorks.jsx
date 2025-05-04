@@ -197,7 +197,7 @@ const HowItWorks = () => {
                     zIndex: 20,
                   }}
                 >
-                  <div className={`bg-black/80 ${isMidRange ? 'p-4' : 'p-8'} rounded-2xl`}>
+                  <div className={` ${isMidRange ? 'p-4' : 'p-8'} rounded-2xl`}>
                     <h3 className={`${isMidRange ? 'text-lg' : 'text-2xl'} font-bold text-white mb-2`}>{step.title}</h3>
                     <p className={`text-gray-300 ${isMidRange ? 'text-xs' : 'text-base'}`}>{step.description}</p>
                   </div>
@@ -218,7 +218,7 @@ const HowItWorks = () => {
                 alt={step.title}
                 className="w-[180px] h-auto rounded-2xl shadow-lg mb-4"
               />
-              <div className="bg-black/80 p-6 rounded-2xl w-full max-w-md text-center">
+              <div className="p-6 rounded-2xl w-full max-w-md text-center">
                 <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
                 <p className="text-gray-300 text-sm">{step.description}</p>
               </div>
