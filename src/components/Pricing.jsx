@@ -7,6 +7,8 @@ const PriceCard = ({ title, price, features, isHighlighted = false, isYearly }) 
         ? 'bg-gradient-to-br from-[#121212] via-[#004766] to-[#00BFFF]' 
         : 'bg-[rgba(255,255,255,0.05)]'
     }`}>
+
+      
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-[22px] text-white font-medium">{title}</h3>
         {/* <div className="w-8 h-8">

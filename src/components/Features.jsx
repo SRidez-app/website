@@ -103,9 +103,9 @@ const Features = () => {
         }}
       ></div>
 
-      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+      <div className="container mx-auto px-4 mb-16 relative z-10 max-w-7xl">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center mt-6 mb-12">
           <p className="text-sm uppercase tracking-wider mb-2 text-gray-400">
             FEATURES
           </p>
@@ -115,10 +115,32 @@ const Features = () => {
           <p className="text-gray-400  text-lg md:text-xl text-white/70 max-w-3xl mx-auto">
           Because your ride should reflect you. We've built features that prioritize your comfort, safety, and freedom—so every ride feels just right..
           </p>
+
         </div>
+               {/* Centered glowing gradient, behind the image */}
+               <div
+            className="absolute z-0 pointer-events-none"
+            style={{
+            top: '70%',
+            left: '50%',
+            width: '80rem',
+            height: '40rem',
+            borderRadius: '50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px',
+            backgroundRepeat: 'repeat',
+            filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.15))',
+            zIndex: -1,
+            opacity: 0.8
+            }}
+          />
 
         {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {features.map((feature, index) => (
             <FeatureCard key={index} {...feature} />
           ))}

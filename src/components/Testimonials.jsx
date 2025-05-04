@@ -114,7 +114,7 @@ const Testimonials = () => {
       {/* Top fade shadow */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black via-black/90 to-transparent z-20 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 relative z-30 h-full flex flex-col lg:flex-row items-stretch w-full">
+      <div className="max-w-7xl mx-auto px-4 relative z-30 h-full flex flex-col lg:flex-row items-center lg:items-stretch w-full gap-x-12 py-16">
         {/* Left side - Heading and text */}
         <div className="flex flex-col justify-center items-center lg:items-start w-full lg:w-1/3 py-10 lg:py-0">
           <div>

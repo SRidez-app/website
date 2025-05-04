@@ -8,6 +8,10 @@ import {
   faYoutube 
 } from '@fortawesome/free-brands-svg-icons';
 import logo from '../assets/logo.png';
+import playstore from '../assets/playstore.png';
+import footerLogo from '../assets/footerlogo.png';
+import Qrcode from '../assets/Qrcode.png';
+
 
 const Footer = () => {
   const columnOne = [
@@ -43,7 +47,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-black text-white relative">
-           
       {/* Background Grid Pattern */}
       <div
         className="absolute inset-0 bg-repeat opacity-10"
@@ -57,52 +60,64 @@ const Footer = () => {
       {/* Main Content */}
       <div className="container mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
          {/* CTA Section */}
-         <div className="py-24 px-4">
+         <div className="py-24 px-4 bg-black rounded-2xl">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
             {/* Text Content */}
-            <div className="max-w-[800px]">
-              <h3 className="text-4xl leading-[1.1] font-semibold mb-8">
-                Join the biggest Webflow{' '}
-                <span className="inline-flex items-center">
-                  <img 
-                    src="/webflow-icon.svg" 
-                    alt="Webflow" 
-                    className="w-12 h-12 mx-2 -mt-2"
-                  />
-                </span>
-                <br />
-                Community on Discord{' '}
-                <span className="inline-flex items-center">
-                  <img 
-                    src="/discord-icon.svg" 
-                    alt="Discord" 
-                    className="w-12 h-12 mx-2 -mt-2"
-                  />
-                </span>
-                <br />
-                for free.
-              </h3>
-              <p className="text-lg text-white/70 max-w-2xl">
-                Join the largest Webflow community on Discord completely free of charge. Connect with a diverse group of Webflow enthusiasts, gain insights, and collaborate on exciting projects. It's the perfect place to expand your network and enhance your skills at no cost!
-              </p>
-            </div>
+            
+        {/* <div className="w-full flex flex-col md:flex-row items-center justify-center py-12 bg-black"> */}
+  
+            <div className="bg-white rounded-xl shadow-lg flex flex-col md:flex-row items-center px-8 py-8 max-w-3xl w-full">
+          {/* Left: Headline */}
+          <div className="flex-1 text-left mb-6 md:mb-0">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 leading-tight">
+              Travel farther,<br />pay less.<br />Scan to ride!
+            </h2>
+            <ol className="text-black text-sm list-decimal pl-5">
+              <li>Download the Seat Ridez app using the QR code</li>
+              <li>Create your account</li>
+              <li>Post or Find a ride : Plan your trip itinerary.</li>
+              <li>Travel Together: Save money and enjoy the journey</li>
+            </ol>
+          </div>
+          {/* Right: QR code */}
+          <div className="flex flex-col items-center justify-center ml-0 md:ml-8">
+            <img src={Qrcode} alt="QR Code" className="w-24 h-24 mb-4" />
+            {/* You can replace with your actual QR code image */}
+          </div>
+        </div> 
+     
             
             {/* Button */}
             <div className="lg:mt-8">
-              <a href="/join" className="inline-flex items-center justify-center bg-white text-black px-8 py-2 rounded-full font-medium hover:bg-opacity-90 transition-colors text-lg">
-                Get Started for Free
-              </a>
-            </div>
+            <div className="flex flex-col items-center ml-0 md:ml-8 mt-8 md:mt-0">
+          <button className="mb-4 px-6 py-2 bg-white text-black rounded-full font-semibold shadow hover:bg-gray-100 transition">
+            Get Started for Free
+          </button>
+          <div className="flex gap-2">
+            <img src={playstore} alt="App Store" className="h-12" />
           </div>
         </div>
+            </div>
+
+            {/* </div> */}
+          </div>
+        </div>
+
+
+
+
+
+      
+        {/* App Store Buttons & CTA */}
+     
+    
       </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
           {/* Logo and Newsletter - Left Side */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <img src={logo} alt="Supply Logo" className="w-6 h-6" />
-              <span className="text-lg font-medium">Supply</span>
+              <img src={footerLogo} alt="Supply Logo" className="w-20 h-20" />
             </div>
             <p className="text-white/60 mb-6 max-w-md text-sm">
               Join our newsletter to stay up to date on features and releases.
@@ -129,7 +144,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-base"
                   >
                     {item.name}
                   </a>
@@ -140,7 +155,7 @@ const Footer = () => {
 
           {/* Sitemap - Separate Column */}
           <div>
-            <h4 className="text-sm text-lg md:text-lg font-medium mb-6 uppercase tracking-wide">
+            <h4 className="text-base text-lg md:text-lg font-medium mb-6 uppercase tracking-wide">
             Terms and Condtions 
             </h4>
             <ul className="space-y-3">
@@ -148,7 +163,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm"
+                    className="text-white/60 hover:text-white transition-colors text-base"
                   >
                     {item.name}
                   </a>
@@ -167,7 +182,7 @@ const Footer = () => {
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-white/60 hover:text-white transition-colors text-sm flex items-center gap-2"
+                    className="text-white/60 hover:text-white transition-colors text-base flex items-center gap-2"
                   >
                     <FontAwesomeIcon icon={item.icon} className="w-4 h-4" />
                     {item.name}
@@ -178,11 +193,24 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-12 pt-6 border-t border-white/10 text-white/60 text-xs">
-          <p>© 2024 Supply. All rights reserved.</p>
+        {/* Copyright and Contact Row */}
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-white/60 text-xs gap-4">
+          {/* Left: Copyright */}
+          <div className="text-left text-lg w-full md:w-auto">© 2024 Supply. All rights reserved.</div>
+          {/* Right: Contact and Socials */}
+          <div className="flex flex-col md:flex-row items-center w-full md:w-auto justify-end gap-2 md:gap-6">
+            <div className="font-semibold text-black md:text-white text-lg md:text-lg mb-1 md:mb-0">Contact us</div>
+            <div className="text-white text-lg mb-1 md:mb-0">Email : <a href="mailto:support@seatridez.com" className="underline hover:text-blue-400 text-lg">support@seatridez.com</a></div>
+            <div className="flex items-center gap-4 text-white text-lg md:text-lg mt-1 md:mt-0">
+              <a href="#" aria-label="X" className="hover:text-blue-400"><FontAwesomeIcon icon={faTwitter} /></a>
+              <a href="#" aria-label="Facebook" className="hover:text-blue-400"><FontAwesomeIcon icon={faFacebookF} /></a>
+              <a href="#" aria-label="Instagram" className="hover:text-blue-400"><FontAwesomeIcon icon={faInstagram} /></a>
+            </div>
+          </div>
         </div>
       </div>
+
+  
     </footer>
   );
 };
