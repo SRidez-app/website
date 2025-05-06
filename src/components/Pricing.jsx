@@ -9,7 +9,7 @@ const PriceCard = ({ title, price, features, isHighlighted = false, isYearly }) 
     }`}>
 
       
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-6  md:mt-16">
         <h3 className="text-[22px] text-white font-medium">{title}</h3>
         {/* <div className="w-8 h-8">
           <img src="/logo-icon.svg" alt="" className="w-full h-full object-contain opacity-80" />
