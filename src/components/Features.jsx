@@ -326,7 +326,7 @@ const Features = () => {
 
       <div className="container mx-auto px-4 sm:px-6 mb-12 sm:mb-16 relative z-10 max-w-7xl">
         {/* Header Section */}
-        <div className="text-center mb-8 sm:mb-12">
+        <div className="text-center mb-8 sm:mb-12 md:mt-16">
           <p className="text-xs sm:text-sm uppercase tracking-wider mb-2 text-gray-400">
             FEATURES
           </p>
