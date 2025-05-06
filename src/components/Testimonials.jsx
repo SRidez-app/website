@@ -281,9 +281,12 @@ const Testimonials = () => {
             <p className="text-[#999999] text-sm sm:text-base max-w-md mx-auto lg:mx-0 mb-4 text-center lg:text-left">
               Discover what our community members have to say about their experience.
             </p>
-            <button className="px-4 py-1.5 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all text-sm inline-block mx-auto lg:mx-0">
-              Try it yourself
-            </button>
+         <div className="flex justify-center lg:justify-start">
+         <button className="px-4 py-1.5 bg-white text-black rounded-full font-medium hover:bg-white/90 transition-all text-sm">
+    Try it yourself
+          </button>
+        </div>
+
           </div>
         </div>
 
