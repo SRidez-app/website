@@ -37,7 +37,7 @@ const Header = () => {
                   style={{ minWidth: '100px', minHeight: '100px' }}
                 />
               </div>
-              <span className="text-white text-2xl font-semibold">Supify</span>
+              <span className="text-white text-2xl font-semibold">Seat Ridez</span>
             </Link>
           </div>
 
