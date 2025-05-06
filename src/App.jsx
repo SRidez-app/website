@@ -23,9 +23,9 @@ function App() {
             <Testimonials />
           </div>
         } />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/updates" element={<div className="p-8">Updates Coming Soon</div>} />
-        <Route path="/support" element={<div className="p-8">Support Page Coming Soon</div>} />
+          <Route path="/pricing" element={<Pricing />} />
+        <Route path="/feature" element={<Features  />} />
+        <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/join" element={<div className="p-8">Join Page Coming Soon</div>} />
       </Routes>
     </Layout>
