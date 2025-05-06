@@ -8,9 +8,10 @@ const Header = () => {
   const navItems = [
     { label: 'Home', href: '/' },
     { label: 'Pricing', href: '/pricing' },
-    { label: 'Updates', href: '/updates' },
-    { label: 'Support', href: '/support' },
+    { label: 'Features', href: '/feature' },
+    { label: 'Testimonials', href: '/testimonials' },
   ];
+
 
   const navStyle = {
     backgroundImage: 'linear-gradient(90deg,rgba(86, 40, 40, 0.38) 12%, #f7f7f761 58%)',
