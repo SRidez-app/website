@@ -4,7 +4,7 @@ import earthImage from '../assets/earth.png'; // Assuming an image asset like th
 const CommunityFirst = () => {
   return (
     <section
-      className="relative py-8 overflow-hidden min-h-[600px] lg:min-h-[700px]"
+      className="relative py-8 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[600px] lg:min-h-[700px]"
       style={{
         background: 'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,71,102,0.9) 100%, rgba(0,0,0,1) 100%)'
       }}
