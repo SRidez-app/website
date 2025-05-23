@@ -129,7 +129,7 @@ const Hero = () => {
 
           {/* Improved Email Input and Button for Mobile */}
           <div className="w-full max-w-lg flex justify-center mb-12">
-            <div className="flex gap-12 w-full max-w-md justify-center flex-wrap">
+            <div className="flex gap-4 md:gap-12 lg:gap-12 w-full max-w-md justify-center flex-wrap">
               <button className="w-full sm:w-auto px-12 py-3 rounded-full bg-[#00BFFF] text-white font-semibold text-base shadow hover:bg-[#0099cc] transition-colors">
                 Offer a ride
               </button>
