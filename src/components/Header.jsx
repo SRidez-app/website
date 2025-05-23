@@ -6,12 +6,11 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'Pricing', href: '/pricing' },
-    { label: 'Features', href: '/feature' },
-    { label: 'Testimonials', href: '/testimonials' },
+    // { label: 'Home', href: '/' },
+    { label: 'About us', href: '/about-us' },
+    { label: 'Login', href: '/login' },
+    { label: 'How it works', href: '/how-it-works' },
   ];
-
 
   const navStyle = {
     backgroundImage: 'linear-gradient(90deg,rgba(86, 40, 40, 0.38) 12%, #f7f7f761 58%)',
@@ -21,7 +20,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] px-4 py-3">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         <nav 
           className="flex items-center justify-between rounded-full px-6"
           style={navStyle}
@@ -103,4 +102,4 @@ const Header = () => {
   );
 };
 
-export default Header; 
+export default Header;
