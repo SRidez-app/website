@@ -110,7 +110,7 @@ const Features = () => {
         </div>
 
         {/* Button */}
-        <div className="flex flex-col  sm:flex-row  justify-center align-items:center py-12  gap-12">
+        <div className="flex flex-col  sm:flex-row  justify-center align-items:center py-12  gap-4 md:gap-12 lg:gap-12">
               <button className="px-16 py-3 bg-yellow-400 text-black font-semibold rounded-full shadow hover:bg-yellow-500 transition-colors">
                 Sign up
               </button>
