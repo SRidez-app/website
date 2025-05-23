@@ -8,7 +8,8 @@ import {
   faYoutube 
 } from '@fortawesome/free-brands-svg-icons';
 import logo from '../assets/logo.png';
-import playstore from '../assets/playstore.png';
+import appstore from '../assets/appstore.png'; // Assuming this path
+
 import footerLogo from '../assets/footerlogo.png';
 import Qrcode from '../assets/Qrcode.png';
 
@@ -95,7 +96,7 @@ const Footer = () => {
             Get Started for Free
           </button>
           <div className="flex gap-2">
-            <img src={playstore} alt="App Store" className="h-12" />
+          <img src={appstore} alt="Apple App Store" className="w-50 h-30 object-cover" />
           </div>
         </div>
             </div>
@@ -103,21 +104,14 @@ const Footer = () => {
             {/* </div> */}
           </div>
         </div>
-
-
-
-
-
       
         {/* App Store Buttons & CTA */}
-     
-    
       </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
           {/* Logo and Newsletter - Left Side */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <img src={footerLogo} alt="Supply Logo" className="w-50" />
+              <img src={footerLogo} alt="Supply Logo" className="w-50 " />
             </div>
             <p className="text-white/60 mb-6 max-w-md text-sm">
               Join our newsletter to stay up to date on features and releases.
