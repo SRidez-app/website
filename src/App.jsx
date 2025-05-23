@@ -7,6 +7,8 @@ import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import Notification from './components/Notification';
 import HowItWorks from './components/HowItWorks';
+import Community from './components/Community';
+import CommunityFirst from './components/CommunityFirst';
 import './index.css';
 
 function App() {
@@ -18,9 +20,11 @@ function App() {
             <Hero />
             <Features />
             <HowItWorks />
-            <Notification />
+{/*             <Notification />
             <Pricing />
-            <Testimonials />
+            <Testimonials /> */}
+            <CommunityFirst />
+            <Community/>
           </div>
         } />
           <Route path="/pricing" element={<Pricing />} />
