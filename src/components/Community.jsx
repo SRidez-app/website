@@ -40,7 +40,7 @@ const Community = () => {
 
   return (
     <section
-      className="w-full py-4 px-4 text-white flex justify-center"
+      className="w-full py-4  text-white flex justify-center"
       style={{
         // background: 'linear-gradient(to bottom, #0A1C2A 50%, #000000 50%)',
         background: 'linear-gradient(180deg,rgb(0,71,102,0.9) 0%,rgb(0,0,0,1) 70%, #000000 100%)',// Top half bluish, bottom half black
@@ -59,7 +59,7 @@ const Community = () => {
         </div>
 
         {/* Bottom Row: Two Columns */}
-        <div className="w-full flex flex-col md:flex-row items-start gap-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start gap-12">
           {/* Left Column: Image Card */}
           <div className="w-full md:w-1/2 flex justify-center md:justify-center mt-16">
             <div
@@ -72,7 +72,7 @@ const Community = () => {
               }}
             >
               <div className="absolute inset-0 bg-black/60"></div> {/* Dark overlay */}
-              <div className="relative z-10 text-white text-left">
+              <div className="relative z-10 text-white text-left mt-6">
                 <h3 className="text-2xl md:text-3xl font-bold mb-2">Need a ride out of state?</h3>
                 <p className="text-base leading-relaxed">
                   Seat Ridez has you covered.<br />
