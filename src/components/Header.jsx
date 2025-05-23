@@ -28,12 +28,12 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-4 py-2">
-              <div className="w-[40px] h-[40px] rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="w-[50px] h-[50px] rounded-lg flex items-center justify-center overflow-hidden">
                 <img 
                   src={logo} 
                   alt="Supify Logo" 
                   className="w-full h-full object-cover p-2"
-                  style={{ minWidth: '100px', minHeight: '100px' }}
+                  style={{ minWidth: '130px', minHeight: '130px' }}
                 />
               </div>
               <span className="text-white text-2xl font-semibold">Seat Ridez</span>
