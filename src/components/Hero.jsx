@@ -100,16 +100,16 @@ const Hero = () => {
       />
       
 
-      <div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
+      <div className="container mx-auto px-4 pt-32 pb-20  md:mt-8 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           {/* Product Update Banner */}
-          <div className="bg-black/40 backdrop-blur-lg rounded-full px-4 py-2 mb-8 flex items-center gap-3 border border-white/20">
+          {/* <div className="bg-black/40 backdrop-blur-lg rounded-full px-4 py-2 mb-8 flex items-center gap-3 border border-white/20">
             <span className="text-white/70 text-sm">Product Update</span>
             <div className="h-4 w-px bg-white/30"></div>
             <span className="text-white text-sm">
               New Channel added "looking-to-hire" →
             </span>
-          </div>
+          </div> */}
 
           <h1 className="heading-style-h1 text-white mb-6" style={headingStyle}>
             Affordable Rides
@@ -117,26 +117,30 @@ const Hero = () => {
             Anywhere!
           </h1>
 
-          <p className="text-lg md:text-xl text-white/70 mb-12 max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-xl text-white/70 py-12  max-w-3xl leading-relaxed">
             Join the carpooling community that puts you in control. 
             <br />
             With Seat Ridez, you skip the surge pricing and ride on your terms. Set your own price, choose driver and passenger genders, and match based on preferences that matter to you. This is carpooling, reimagined.
           </p>
 
+          <h2 className="heading-style-h2 text-white pt-6 pb-12" style={headingStyle}>
+          This is carpooling, reimagined
+          </h2>
+
           {/* Improved Email Input and Button for Mobile */}
           <div className="w-full max-w-lg flex justify-center mb-12">
-            <div className="flex gap-4 w-full max-w-md justify-center flex-wrap">
-              <button className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#00BFFF] text-white font-semibold text-base shadow hover:bg-[#0099cc] transition-colors">
+            <div className="flex gap-12 w-full max-w-md justify-center flex-wrap">
+              <button className="w-full sm:w-auto px-12 py-3 rounded-full bg-[#00BFFF] text-white font-semibold text-base shadow hover:bg-[#0099cc] transition-colors">
                 Offer a ride
               </button>
-              <button className="w-full sm:w-auto px-6 py-3 rounded-full bg-white text-black font-semibold text-base border border-[#00BFFF] shadow hover:bg-gray-100 transition-colors">
+              <button className="w-full sm:w-auto px-12 py-3 rounded-full bg-white text-black font-semibold text-base border border-[#00BFFF] shadow hover:bg-gray-100 transition-colors">
                 Find a ride
               </button>
             </div>
           </div>
 
           {/* Discord Screenshot with 3D Effect */}
-          <div className="mt-16  pt-2 
+          {/* <div className="mt-16  pt-6 
           w-full max-w-full lg:max-w-5xl mx-auto" style={{ perspective: '2000px' }}>
             <div 
               className="relative w-full rounded-lg overflow-hidden shadow-2xl"
@@ -159,7 +163,7 @@ const Hero = () => {
                 }}
               />
               {/* Enhanced reflection effect */}
-              <div 
+              {/* <div 
                 className="absolute inset-0"
                 style={{
                   background: 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
@@ -169,7 +173,7 @@ const Hero = () => {
                 }}
               />
             </div>
-          </div>
+          </div> */} 
         </div>
       </div>
 
