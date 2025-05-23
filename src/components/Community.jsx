@@ -40,7 +40,7 @@ const Community = () => {
 
   return (
     <section
-      className="w-full py-16 px-4 text-white flex justify-center"
+      className="w-full py-4 px-4 text-white flex justify-center"
       style={{
         // background: 'linear-gradient(to bottom, #0A1C2A 50%, #000000 50%)',
         background: 'linear-gradient(180deg,rgb(0,71,102,0.9) 0%,rgb(0,0,0,1) 70%, #000000 100%)',// Top half bluish, bottom half black
