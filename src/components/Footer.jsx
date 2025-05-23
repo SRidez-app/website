@@ -111,7 +111,7 @@ const Footer = () => {
           {/* Logo and Newsletter - Left Side */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <img src={footerLogo} alt="Supply Logo" className="w-50 " />
+              <img src={footerLogo} alt="Supply Logo" className="w-40 " />
             </div>
             <p className="text-white/60 mb-6 max-w-md text-sm">
               Join our newsletter to stay up to date on features and releases.
