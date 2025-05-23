@@ -190,7 +190,7 @@ const Footer = () => {
         {/* Copyright and Contact Row */}
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-white/60 text-xs gap-4">
           {/* Left: Copyright */}
-          <div className="text-left text-lg w-full md:w-auto">© 2024 Supply. All rights reserved.</div>
+          <div className="text-left text-lg w-full md:w-auto">© 2025 Seat Ridez. All rights reserved.</div>
           {/* Right: Contact and Socials */}
           <div className="flex flex-col md:flex-row items-center w-full md:w-auto justify-end gap-2 md:gap-6">
             <div className="font-semibold text-black md:text-white text-lg md:text-lg mb-1 md:mb-0">Contact us</div>
