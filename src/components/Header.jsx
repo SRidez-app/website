@@ -13,7 +13,7 @@ const Header = () => {
   ];
 
   const navStyle = {
-    backgroundImage: 'linear-gradient(90deg,rgba(86, 40, 40, 0.38) 12%, #f7f7f761 58%)',
+    backgroundImage: 'linear-gradient(90deg,rgba(86, 40, 40, 0.38) 0%, #f7f7f761 0%)',
     backdropFilter: 'blur(6px)',
     WebkitBackdropFilter: 'blur(6px)',
   };
@@ -46,7 +46,7 @@ const Header = () => {
               <Link
                 key={item.label}
                 to={item.href}
-                className="text-white/90 hover:text-white text-base font-medium transition-colors py-4"
+                className="text-black hover:text-black text-base font-medium transition-colors py-4"
               >
                 {item.label}
               </Link>
