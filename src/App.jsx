@@ -27,8 +27,11 @@ function App() {
             <Community/>
           </div>
         } />
-          <Route path="/pricing" element={<Pricing />} />
-        <Route path="/feature" element={<Features  />} />
+       {/* <Route path="/pricing" element={<Pricing />} /> */}
+        <Route path="/about-us" element={<div className="p-8">About Page Coming Soon</div>} />
+        <Route path="/login" element={<div className="p-8">Login Page Coming Soon</div>} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+        {/* <Route path="/feature" element={<Features  />} /> */}
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/join" element={<div className="p-8">Join Page Coming Soon</div>} />
       </Routes>
