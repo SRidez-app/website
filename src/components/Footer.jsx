@@ -7,7 +7,7 @@ import {
   faLinkedinIn, 
   faYoutube 
 } from '@fortawesome/free-brands-svg-icons';
-import logo from '../assets/logo.png';
+import logo from '../assets/logoFooter.png';
 import appstore from '../assets/appstore.png'; // Assuming this path
 
 import footerLogo from '../assets/footerlogo.png';
