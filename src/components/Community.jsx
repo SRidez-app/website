@@ -1,8 +1,8 @@
 import React from 'react';
 import communityImage from '../assets/community.jpg';
 import starIcon from '../assets/star.png';
-import playstore from '../assets/star.png'; // Assuming this path
-import appstore from '../assets/appstore.png'; // Assuming this path
+import playstore from '../assets/star.png'; 
+import appstore from '../assets/appstore.png'; 
 
 const Community = () => {
   const rideOptions = [
