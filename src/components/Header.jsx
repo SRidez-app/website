@@ -28,7 +28,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-2">
-  <div className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center ">
+  <div className="w-18 h-18 rounded-full overflow-hidden flex items-center justify-center ">
     <img
       src={logo}
       alt="Seat Ridez Logo"
