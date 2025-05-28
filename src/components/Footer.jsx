@@ -110,8 +110,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
           {/* Logo and Newsletter - Left Side */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <img src={footerLogo} alt="Supply Logo" className="w-40 " />
+          <div className="flex flex-col items-start gap-3 mb-6">
+              <img src={logo} alt="Supply Logo" className="w-25 " />
+              <h2 className="text-3xl font-bold">Seat Ridez</h2>
             </div>
             <p className="text-white/60 mb-6 max-w-md text-sm">
               Join our newsletter to stay up to date on features and releases.
