@@ -27,17 +27,18 @@ const Header = () => {
         >
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center gap-4 py-2">
-              <div className="w-[40px] h-[40px] rounded-lg flex items-center justify-center overflow-hidden">
-                <img 
-                  src={logo} 
-                  alt="Supify Logo" 
-                  className="w-full h-full object-cover p-2"
-                  style={{ minWidth: '130px', minHeight: '130px' }}
-                />
-              </div>
-              <span className="text-white text-2xl font-semibold">Seat Ridez</span>
-            </Link>
+            <Link to="/" className="flex items-center gap-2">
+  <div className="w-20 h-20 rounded-full overflow-hidden flex items-center justify-center ">
+    <img
+      src={logo}
+      alt="Seat Ridez Logo"
+      className="w-auto h-full object-contain"
+    />
+  </div>
+  <span className="text-white text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+    Seat Ridez
+  </span>
+</Link>
           </div>
 
           {/* Desktop Navigation */}
