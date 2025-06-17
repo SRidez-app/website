@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import hero from '../assets/hero.png';
 
 const Hero = () => {
-  const [rotation, setRotation] = useState(30);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [scrollY, setScrollY] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const heroRef = useRef(null);
 
@@ -13,173 +12,244 @@ const Hero = () => {
     };
 
     const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrollY(currentScrollY);
+      
       if (!heroRef.current) return;
       const rect = heroRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const heroHeight = rect.height;
       let progress = Math.min(Math.max((windowHeight - rect.top) / (windowHeight + heroHeight), 0), 1);
       progress = Math.min(progress * 1.2, 1);
-      const baseRotation = isMobile ? 0 : 50; // Disable rotation on mobile
-      const newRotation = baseRotation * (1 - progress);
-      setRotation(newRotation);
+      setScrollProgress(progress);
     };
 
-    const handleMouseMove = (e) => {
-      if (isMobile) return; // Disable mouse effects on mobile
-      const { clientX, clientY } = e;
-      const x = (clientX / window.innerWidth - 0.5) * 30;
-      const y = (clientY / window.innerHeight - 0.5) * 15;
-      setMousePosition({ x, y });
-    };
-
-    // Initial check
     checkMobile();
     handleScroll();
 
-    // Event listeners
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', () => {
       checkMobile();
       handleScroll();
     });
-    window.addEventListener('mousemove', handleMouseMove);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkMobile);
-      window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [isMobile]);
 
-  const headingStyle = {
-    fontSize: 'clamp(2.3rem, 5vw, 3.5rem)',
-    lineHeight: '1.2',
-    fontWeight: '500',
-    margin: '0',
-    transform: 'translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
-    transformStyle: 'preserve-3d',
-    opacity: 1
+  // Generate static floating elements (much lighter)
+  const generateFloatingElements = () => {
+    const elements = [];
+    for (let i = 0; i < 15; i++) {
+      elements.push({
+        id: i,
+        x: Math.random() * 100,
+        y: Math.random() * 100,
+        size: Math.random() * 4 + 2,
+        delay: Math.random() * 4,
+        duration: Math.random() * 3 + 4,
+      });
+    }
+    return elements;
   };
 
-  const imageStyle = {
-    opacity: 1,
-    transform: `
-      perspective(${isMobile ? '1000px' : '2000px'})
-      translate3d(0px, ${isMobile ? 0 : rotation * -2}px, 0px)
-      scale3d(${isMobile ? 0.9 : 1}, ${isMobile ? 0.9 : 1}, 1)
-      rotateX(${isMobile ? 0 : rotation + mousePosition.y * 0.2}deg)
-      rotateY(${isMobile ? 0 : mousePosition.x * 0.1}deg)
-      rotateZ(0deg)
-      skew(0deg, 0deg)
-    `,
-    transformStyle: 'preserve-3d',
-    transformOrigin: 'center top',
-    willChange: isMobile ? 'auto' : 'transform',
-    transition: isMobile ? 'none' : 'transform 0.2s cubic-bezier(0.215, 0.61, 0.355, 1)',
-  };
+  const floatingElements = generateFloatingElements();
 
   return (
-    <section 
-      ref={heroRef} 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#121212] overflow-x-hidden"
-    >
-      {/* Background grid and gradient effects */}
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: `
-            linear-gradient(153deg, rgba(0, 0, 0, 0.67), transparent 100%),
-            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), 
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(151deg, #121212, #000 16%, rgba(0, 191, 255, 0.3) 38%, #00BFFF 57%, #004766 76%, #000 96%)
-          `,
-          backgroundPosition: '0 0, 0 0, 0 0',
-          backgroundSize: 'auto, 40px 40px, 40px 40px, auto',
-          backgroundRepeat: 'no-repeat, repeat, repeat, no-repeat',
-        }}
-      />
-      
+   <section className="relative pt-24 pb-90 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-transparent">
 
-      <div className="container mx-auto px-4 pt-32 pb-20  md:mt-8 relative z-10">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          {/* Product Update Banner */}
-          {/* <div className="bg-black/40 backdrop-blur-lg rounded-full px-4 py-2 mb-8 flex items-center gap-3 border border-white/20">
-            <span className="text-white/70 text-sm">Product Update</span>
-            <div className="h-4 w-px bg-white/30"></div>
-            <span className="text-white text-sm">
-              New Channel added "looking-to-hire" →
+      {/* Simplified animated background */}
+      <div className="absolute inset-0">
+        {/* Animated gradient overlay */}
+
+        {/* Floating elements - much simpler */}
+        {floatingElements.map((element) => (
+          <div
+            key={element.id}
+            className="absolute rounded-full bg-white/20 backdrop-blur-sm"
+            style={{
+              left: `${element.x}%`,
+              top: `${element.y}%`,
+              width: `${element.size}px`,
+              height: `${element.size}px`,
+              animation: `float ${element.duration}s ease-in-out infinite`,
+              animationDelay: `${element.delay}s`,
+              boxShadow: '0 0 20px rgba(255, 255, 255, 0.1)'
+            }}
+          />
+        ))}
+
+        {/* Simple geometric shapes */}
+        <div 
+          className="absolute top-1/4 left-1/4 w-32 h-32 border border-white/10 rounded-full"
+          style={{
+            animation: 'rotate 20s linear infinite',
+            transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.05}px)`
+          }}
+        />
+        <div 
+          className="absolute bottom-1/3 right-1/4 w-24 h-24 border border-blue-400/20 rotate-45"
+          style={{
+            animation: 'rotate 15s linear infinite reverse',
+            transform: `translate(${-scrollY * 0.08}px, ${scrollY * 0.06}px)`
+          }}
+        />
+
+        {/* Grid pattern */}
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '50px 50px',
+            transform: `translate(${scrollY * 0.05}px, ${scrollY * 0.02}px)`
+          }}
+        />
+      </div>
+
+      {/* Main content */}
+      <div className="container mx-auto px-4 pt-32 pb-20 md:mt-8 relative z-10">
+        <div 
+          className="flex flex-col items-center text-center max-w-4xl mx-auto"
+          style={{
+            transform: `translateY(${scrollProgress * -20}px)`,
+            opacity: 1 - scrollProgress * 0.3
+          }}
+        >
+          
+          {/* Main Headline */}
+          <h1 className="text-white mb-6 hero-title">
+            <span className="gradient-text">
+              Affordable Rides
             </span>
-          </div> */}
-
-          <h1 className="heading-style-h1 text-white mb-6" style={headingStyle}>
-            Affordable Rides
             <br />
-            Anywhere!
+            <span className="font-extrabold tracking-tight">Anywhere!</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-white/70 py-12  max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-xl text-white/80 py-12 max-w-3xl leading-relaxed font-light hero-subtitle">
             Join the carpooling community that puts you in control. 
             <br />
-            With Seat Ridez, you skip the surge pricing and ride on your terms. Set your own price, choose driver and passenger genders, and match based on preferences that matter to you. This is carpooling, reimagined.
+            With <span className="font-semibold text-blue-400">Seat Ridez</span>, you skip the surge pricing and ride on your terms. 
+            <span className="font-medium text-white"> Set your own price, choose driver and passenger genders, and match based on preferences that matter to you.</span>
           </p>
 
-          <h2 className="heading-style-h2 text-white pt-6 pb-12" style={headingStyle}>
-          This is carpooling, reimagined
+          <h2 className="text-white pt-6 pb-12 hero-subtitle-2">
+            This is carpooling, reimagined
           </h2>
 
-          {/* Improved Email Input and Button for Mobile */}
-          <div className="w-full max-w-lg flex justify-center mb-12">
+          {/* Buttons */}
+          <div className="w-full max-w-lg flex justify-center mb-12 hero-buttons">
             <div className="flex gap-4 md:gap-12 lg:gap-12 w-full max-w-md justify-center flex-wrap">
-              <button className="w-full sm:w-auto px-12 py-3 rounded-full bg-[#00BFFF] text-white font-semibold text-base shadow hover:bg-[#0099cc] transition-colors">
-                Offer a ride
+              <button className="btn-primary group w-full sm:w-auto px-12 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform">
+                <span className="relative z-10">Offer a ride</span>
               </button>
-              <button className="w-full sm:w-auto px-12 py-3 rounded-full bg-white text-black font-semibold text-base border border-[#00BFFF] shadow hover:bg-gray-100 transition-colors">
+              <button className="btn-secondary group w-full sm:w-auto px-12 py-3 rounded-full bg-white/10 backdrop-blur-xl text-white font-semibold text-base border border-white/30 shadow-lg hover:bg-white/20 hover:border-blue-400 transition-all duration-300 hover:scale-105 transform">
                 Find a ride
               </button>
             </div>
           </div>
-
-          {/* Discord Screenshot with 3D Effect */}
-          {/* <div className="mt-16  pt-6 
-          w-full max-w-full lg:max-w-5xl mx-auto" style={{ perspective: '2000px' }}>
-            <div 
-              className="relative w-full rounded-lg overflow-hidden shadow-2xl"
-              style={{
-                ...imageStyle,
-                maxWidth: '100%',
-                width: '100%',
-                height: 'auto',
-                minWidth: 0,
-              }}
-            >
-              <img
-                src={hero}
-                alt="Discord Community Screenshot"
-                className="w-full h-auto object-contain"
-                style={{
-                  filter: 'brightness(1.1) contrast(1.1)',
-                  transform: 'translateZ(0)',
-                  backfaceVisibility: 'hidden',
-                }}
-              />
-              {/* Enhanced reflection effect */}
-              {/* <div 
-                className="absolute inset-0"
-                style={{
-                  background: 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
-                  backgroundSize: '40px 40px',
-                  mixBlendMode: 'overlay',
-                  pointerEvents: 'none',
-                }}
-              />
-            </div>
-          </div> */} 
         </div>
       </div>
 
-      {/* Floating gradient orbs */}
-      <div className="absolute top-1/4 -left-20 w-60 h-60 bg-gradient-to-br from-[#00BFFF] to-[#004766] rounded-full blur-[100px] opacity-20"></div>
-      <div className="absolute bottom-1/4 -right-20 w-60 h-60 bg-gradient-to-br from-[#00BFFF] to-[#004766] rounded-full blur-[100px] opacity-20"></div>
+      <style jsx>{`
+        .hero-title {
+          font-size: clamp(2.3rem, 5vw, 3.5rem);
+          line-height: 1.2;
+          font-weight: 700;
+          margin: 0;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          letter-spacing: -0.02em;
+          text-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+          animation: fadeInUp 0.8s ease-out;
+        }
+
+        .gradient-text {
+          background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #8b5cf6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: gradient-shift 3s ease-in-out infinite alternate;
+        }
+
+        .hero-subtitle {
+          animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-subtitle-2 {
+          font-size: clamp(1.8rem, 4vw, 2.5rem);
+          line-height: 1.3;
+          font-weight: 600;
+          margin: 0;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          letter-spacing: -0.01em;
+          background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #fbbf24 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-buttons {
+          animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .btn-primary {
+          box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+          backdrop-filter: blur(20px);
+          box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes gradient-shift {
+          0% { 
+            background-position: 0% 50%;
+            filter: hue-rotate(0deg);
+          }
+          50% { 
+            background-position: 100% 50%;
+            filter: hue-rotate(180deg);
+          }
+          100% { 
+            background-position: 0% 50%;
+            filter: hue-rotate(360deg);
+          }
+        }
+
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-20px) rotate(180deg);
+          }
+        }
+
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </section>
   );
 };

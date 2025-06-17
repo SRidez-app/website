@@ -6,39 +6,42 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    // { label: 'Home', href: '/' },
+    // { label: 'Home', href: '/' }, // This was commented out in your original
     { label: 'About us', href: '/about-us' },
     { label: 'Login', href: '/login' },
     { label: 'How it works', href: '/how-it-works' },
   ];
 
   const navStyle = {
+    // You might want to consider making this a Tailwind class if you're using Tailwind extensively
     backgroundImage: 'linear-gradient(90deg,rgba(86, 40, 40, 0.38) 0%, #f7f7f761 0%)',
     backdropFilter: 'blur(6px)',
     WebkitBackdropFilter: 'blur(6px)',
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] px-4 py-3">
-      <div className="max-w-2xl mx-auto">
-        <nav 
+    // Increase z-index significantly to ensure it's on top
+    // Also, ensure the header is truly `fixed` relative to the viewport.
+    <header className="fixed top-0 left-0 right-0 z-[9999] px-4 py-3"> {/* Increased z-index */}
+      <div className="max-w-2xl mx-auto"> {/* Keep max-width here if desired, but ensure it doesn't limit overall header interaction */}
+        <nav
           className="flex items-center justify-between rounded-full px-6"
           style={navStyle}
         >
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center translate-y-[-2px]">
             <Link to="/" className="flex items-center gap-2">
-  <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center ">
-    <img
-      src={logo}
-      alt="Seat Ridez Logo"
-      className="w-auto h-full object-contain"
-    />
-  </div>
-  <span className="text-white text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-    Seat Ridez
-  </span>
-</Link>
+              <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center ">
+                <img
+                  src={logo}
+                  alt="Seat Ridez Logo"
+                  className="w-auto h-full object-contain"
+                />
+              </div>
+              <span className="text-black text-xl font-bold">
+                Seat Ridez
+              </span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -52,10 +55,10 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-            
+
             {/* Join Now Button */}
             <Link
-              to="/join"
+              to="/signup"
               className="bg-white text-black text-base font-medium px-6 h-10 rounded-full hover:bg-white/90 transition-all flex items-center"
             >
               Join Now
@@ -64,7 +67,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-white"
+            className="md:hidden p-2 text-white" // text-white here seems inconsistent with text-black on desktop links
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -82,7 +85,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div 
+          <div
             className="md:hidden absolute left-4 right-4 top-full mt-2 p-4 rounded-2xl border border-white/10"
             style={navStyle}
           >
@@ -96,6 +99,14 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
+            {/* Add Join Now button to mobile menu too if desired */}
+            <Link
+              to="/signup"
+              className="block py-2 px-4 mt-2 bg-white text-black text-base font-medium rounded-lg text-center hover:bg-white/90 transition-all"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Join Now
+            </Link>
           </div>
         )}
       </div>
