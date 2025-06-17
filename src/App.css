@@ -1,25 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* --- Global Background and Animations --- */
+:root {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #fff; /* Changed default text color to white for contrast on dark background */
+  background-color: #0f172a; /* Fallback for browsers that don't support gradients or before JS loads */
+
+  /* Apply the consistent background gradient here */
+  background: linear-gradient(180deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+  min-height: 100vh; /* Ensure it covers the full viewport height */
+  position: relative; /* Needed for absolute positioning of background effects */
+  overflow-x: hidden; /* Prevent horizontal scrollbar from animated elements */
+
+  /* Set default scrollbar for the entire page if not explicitly overridden by custom-scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,191,255,0.3) rgba(255,255,255,0.05); /* thumb track */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* Make sure body also covers full viewport */
+  width: 100vw;
+  height: 100%;
 }
 
-@keyframes logo-spin {
+/* Global Animated Background Overlay */
+/* This div will be added directly into your root component (e.g., App.js/tsx) */
+.global-animated-bg-overlay {
+  position: fixed; /* Use fixed to ensure it covers the entire viewport regardless of scroll */
+  inset: 0;
+  opacity: 0.4; /* Adjust opacity as desired for the global background */
+  background: linear-gradient(151deg, #121212, #000 16%, rgba(0, 191, 255, 0.2) 38%, #00BFFF 57%, #004766 76%, #000 96%);
+  animation: gradient-shift 8s ease-in-out infinite alternate;
+  pointer-events: none; /* Allows clicks to pass through to content */
+  z-index: -2; /* Place it behind other content */
+}
+
+/* Global Grid Pattern */
+/* This div will be added directly into your root component (e.g., App.js/tsx) */
+.global-grid-pattern {
+  position: fixed; /* Use fixed to ensure it covers the entire viewport regardless of scroll */
+  inset: 0;
+  opacity: 0.08; /* Adjust opacity for the global grid */
+  background-image: linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none; /* Allows clicks to pass through to content */
+  z-index: -1; /* Place it behind other content but in front of the animated overlay */
+}
+
+/* Global Keyframe Animations (for background effects) */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Floating element specific animations (will be applied via style prop in JSX) */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+@keyframes rotate {
   from {
     transform: rotate(0deg);
   }
@@ -28,18 +89,166 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* --- End Global Background and Animations --- */
+
+
+/* --- Existing styles (adjusted for consistency) --- */
+
+/* Header styles */
+header {
+  font-family: 'Outfit', sans-serif;
+}
+
+button {
+  font-family: inherit;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Media query for light theme (will likely be overridden by your dark theme) */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547; /* This will be overridden by the global :root color: #fff; */
+    background-color: #ffffff; /* This will be overridden by the global :root background */
   }
 }
 
-.card {
-  padding: 2em;
+.heading-style-h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+  color: #fff; /* Ensure headings are white by default */
 }
 
-.read-the-docs {
-  color: #888;
+@media screen and (max-width: 991px) {
+  .heading-style-h1 {
+    font-size: 38px;
+    line-height: 44px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .heading-style-h1 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+/* Footer styles */
+.heading-cta {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0;
+  text-align: left;
+  color: #fff; /* Ensure footer CTA heading is white by default */
+}
+
+.heading-cta span {
+  display: inline;
+  white-space: nowrap;
+}
+
+.header-heading-span.discord {
+  color: #5865F2;
+}
+
+.text-size-medium {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff; /* Ensure default medium text is white */
+}
+
+.text-color-secondary {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.padding-global {
+  padding: 2.5rem 5%;
+}
+
+.container-large {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.padding-section-large {
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+}
+
+.bottom-small {
+  padding-bottom: 3.75rem;
+}
+
+.max-width-large {
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 991px) {
+  .heading-cta {
+    font-size: 2rem;
+  }
+
+  .padding-section-large {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .heading-cta {
+    font-size: 1.75rem;
+  }
+
+  .padding-section-large {
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
+  }
+
+  .bottom-small {
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* Footer additional styles */
+.footer-input {
+  background: rgba(255, 255, 255, 0.1);
+
+  border-radius: 9999px;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.footer-input:focus {
+  outline: none;
+ 
+}
+
+.footer-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -49,7 +258,6 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 6px;

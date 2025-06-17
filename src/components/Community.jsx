@@ -1,8 +1,8 @@
 import React from 'react';
 import communityImage from '../assets/community.jpg';
 import starIcon from '../assets/star.png';
-import playstore from '../assets/star.png'; 
-import appstore from '../assets/appstore.png'; 
+import playstore from '../assets/playstore.png'; // Corrected import path based on your request
+import appstore from '../assets/appstore.png';   // Corrected import path based on your request
 
 const Community = () => {
   const rideOptions = [
@@ -39,66 +39,70 @@ const Community = () => {
   ];
 
   return (
-    <section
-      className="w-full py-4  text-white flex justify-center"
-      style={{
-        // background: 'linear-gradient(to bottom, #0A1C2A 50%, #000000 50%)',
-        background: 'linear-gradient(180deg,rgb(0,71,102,0.9) 0%,rgb(0,0,0,1) 70%, #000000 100%)',// Top half bluish, bottom half black
-      }}
-    >
-      <div className="max-w-7xl w-full mx-auto flex flex-col items-center">
+  <section className="relative pt-24 pb-90 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-transparent">
+
+      {/* Main content */}
+      <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center relative z-10">
         {/* Top Row: Heading and App Icons */}
-        <div className="w-full flex justify-center items-center mb-2">
-          <h2 className="text-4xl md:text-5xl font-bold">We got you covered!</h2>
-        </div>
-        <div className="w-full flex items-end justify-end">
-          <div className="flex gap-4">
-            {/* <img src={playstore} alt="Google Play Store" className="h-10" /> */}
-            <img src={appstore} alt="Apple App Store" className="w-50 h-30 object-cover" />
+        <div className="w-full flex flex-col md:flex-row justify-between items-center mb-8 text-center md:text-left">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 md:mb-0">
+            <span className="gradient-text">We got you covered!</span>
+          </h2>
+          {/* NEW: App Store Icons */}
+          <div className="flex justify-center md:justify-end gap-4 mt-4 md:mt-0">
+            <a href="#" className="inline-block" aria-label="Download on Google Play">
+              <img src={playstore} alt="Google Play Store" className="h-12 w-auto transition-transform duration-300 hover:scale-105" />
+            </a>
+            <a href="#" className="inline-block" aria-label="Download on Apple App Store">
+              <img src={appstore} alt="Apple App Store" className="h-12 w-auto transition-transform duration-300 hover:scale-105" />
+            </a>
           </div>
         </div>
 
         {/* Bottom Row: Two Columns */}
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-start gap-12">
+        <div className="container mx-auto flex flex-col md:flex-row items-start gap-12 mt-8">
           {/* Left Column: Image Card */}
-          <div className="w-full md:w-1/2 flex justify-center md:justify-center mt-16">
+          <div className="w-full md:w-1/2 flex justify-center mt-8 md:mt-16">
             <div
-              className="relative rounded-2xl border-2 border-white overflow-hidden shadow-2xl bg-black/70 p-8 w-full"
+              className="relative rounded-2xl border border-blue-500/30 overflow-hidden shadow-2xl bg-black/70 backdrop-blur-sm p-8 w-full max-w-lg"
               style={{
-                backgroundImage: `url(${communityImage})`,
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${communityImage})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
-                minHeight: '300px',
+                minHeight: '350px',
+                boxShadow: '0 0 30px rgba(59, 130, 246, 0.2)',
               }}
             >
-              <div className="absolute inset-0 bg-black/60"></div> {/* Dark overlay */}
               <div className="relative z-10 text-white text-left mt-6">
-                <h3 className="text-2xl md:text-3xl font-bold mb-2">Need a ride out of state?</h3>
-                <p className="text-base leading-relaxed">
-                  Seat Ridez has you covered.<br />
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">Need a ride out of state?</h3>
+                <p className="text-base leading-relaxed text-white/80">
+                  Seat Ridez has you covered.
                   Book one-way trips or plan a full round-trip itinerary—no surge pricing, no meters, no stress. Just affordable, hassle-free travel.<br /><br />
-                  That's the Seat Ridez way.
+                  That's the <span className="font-semibold text-blue-400">Seat Ridez</span> way.
                 </p>
               </div>
             </div>
           </div>
 
           {/* Right Column: Star List */}
-          <div className="w-full md:w-1/2 flex flex-col items-start justify-center text-white">
-            <div className="grid grid-cols-1">
+          <div className="w-full md:w-1/2 flex flex-col items-start justify-center text-white mt-8 md:mt-0">
+            <div className="grid grid-cols-1 gap-4">
               {rideOptions.map((option) => (
-                <div key={option.id} className="p-4 rounded-lg transition-all">
-                  <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 flex-shrink-0 mt-1">
+                <div
+                  key={option.id}
+                  className="p-4 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-blue-400"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 flex-shrink-0 mt-1">
                       <img
                         src={option.image}
                         alt={option.title}
-                        className="w-full h-full object-contain"
+                        className="w-full h-full object-contain filter brightness-150"
                       />
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg mb-2">{option.title}</h4>
-                      <p className="text-gray-400 text-sm">{option.description}</p>
+                      <h4 className="font-bold text-xl mb-2 text-blue-300">{option.title}</h4>
+                      <p className="text-gray-300 text-sm">{option.description}</p>
                     </div>
                   </div>
                 </div>
@@ -107,6 +111,31 @@ const Community = () => {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .gradient-text {
+          background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #8b5cf6 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: gradient-shift 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradient-shift {
+          0% {
+            background-position: 0% 50%;
+            filter: hue-rotate(0deg);
+          }
+          50% {
+            background-position: 100% 50%;
+            filter: hue-rotate(180deg);
+          }
+          100% {
+            background-position: 0% 50%;
+            filter: hue-rotate(360deg);
+          }
+        }
+      `}</style>
     </section>
   );
 };

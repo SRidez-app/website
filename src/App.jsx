@@ -11,6 +11,8 @@ import Community from './components/Community';
 import CommunityFirst from './components/CommunityFirst';
 import './index.css';
 
+import './App.css';     // ✅ Load background/animation LAST so it overrides
+
 function App() {
   return (
     <Layout>
