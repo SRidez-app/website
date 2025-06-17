@@ -1,14 +1,13 @@
 import React from 'react';
 
+import earthImage from '../assets/earth.png'; // Example relative path, adjust as needed
 
 const CommunityFirst = () => {
   return (
     <section className="relative pt-24 pb-90 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-transparent" >
-      {/* Animated gradient overlay */}
+      {/* Animated gradient overlay (Note: these background elements were moved to Layout.jsx/globals.css in previous steps) */}
 
-
-
-      {/* Floating elements */}
+      {/* Floating elements - Dynamic elements typically handled in a Layout component or global wrapper */}
       {[...Array(15)].map((_, i) => (
         <div
           key={i}
@@ -25,7 +24,7 @@ const CommunityFirst = () => {
         />
       ))}
 
-      {/* Geometric shapes */}
+      {/* Geometric shapes - Dynamic elements typically handled in a Layout component or global wrapper */}
       <div
         className="absolute top-1/4 left-1/4 w-32 h-32 border border-white/10 rounded-full"
         style={{ animation: 'rotate 20s linear infinite' }}
@@ -35,7 +34,7 @@ const CommunityFirst = () => {
         style={{ animation: 'rotate 15s linear infinite reverse' }}
       />
 
-      {/* Grid overlay */}
+      {/* Grid overlay - Dynamic elements typically handled in a Layout component or global wrapper */}
       <div
         className="absolute inset-0 opacity-10"
         style={{
@@ -53,15 +52,21 @@ const CommunityFirst = () => {
         </h2>
 
         <div className="w-full flex flex-col md:flex-row items-center md:items-start gap-8">
-          {/* Image */}
+          {/* Image - Earth frame updated here */}
           <div className="w-full md:w-1/2 flex justify-center order-2 md:order-1">
             <img
-              src="https://placehold.co/350x350/00BFFF/FFFFFF?text=Earth"
+              src={earthImage.src || earthImage} // Use .src if Next.js Image optimization is implied, otherwise directly use earthImage
               alt="Hands holding earth"
               className="w-80 h-80 object-cover rounded-full shadow-lg"
               style={{
                 border: '3px solid rgba(59, 130, 246, 0.5)',
                 boxShadow: '0 0 40px rgba(59, 130, 246, 0.4)',
+              }}
+              onError={(e) => {
+                // Fallback for broken image, e.g., a placeholder or hiding the image
+                // This is useful if the path is incorrect or image fails to load.
+                e.currentTarget.src = "https://placehold.co/350x350/00BFFF/FFFFFF?text=Image+Error";
+                e.currentTarget.onerror = null; // Prevent infinite loop if fallback also fails
               }}
             />
           </div>
@@ -87,7 +92,7 @@ const CommunityFirst = () => {
         </div>
       </div>
 
-      {/* Styles */}
+      {/* Styles - assuming these keyframes are already in your global CSS now */}
       <style jsx>{`
         .gradient-text {
           background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #8b5cf6 100%);
@@ -96,39 +101,11 @@ const CommunityFirst = () => {
           background-clip: text;
           animation: gradient-shift 3s ease-in-out infinite alternate;
         }
-
-        @keyframes gradient-shift {
-          0% {
-            background-position: 0% 50%;
-            filter: hue-rotate(0deg);
-          }
-          50% {
-            background-position: 100% 50%;
-            filter: hue-rotate(180deg);
-          }
-          100% {
-            background-position: 0% 50%;
-            filter: hue-rotate(360deg);
-          }
-        }
-
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(180deg);
-          }
-        }
-
-        @keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
+        /*
+          Removed duplicate keyframe definitions here.
+          These should ideally be in your global CSS file (e.g., globals.css)
+          as discussed in previous turns.
+        */
       `}</style>
     </section>
   );
