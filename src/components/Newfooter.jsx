@@ -23,21 +23,6 @@ const Footer = () => {
     { name: 'Our Story', href: '#' },
   ];
 
-  const sitemap = [
-    { name: 'Accounts & Payments ', href: '/terms' },
-    { name: 'Safety & Security ', href: '/terms' },
-    { name: 'Legal & Compliance ', href: '/terms' },
-    { name: 'Privacy & User Conduct ', href: '/terms' },
-  ];
-
-  // Re-enable actual social links with icons for consistency with Hero's dynamic feel
-  const socialLinks = [
-    { name: 'Data Collection & Use', href: '/privacy-policy' },
-    { name: 'Your Privacy Rights', href: '/privacy-policy' },
-    { name: 'Security & Retention', href: '/privacy-policy' },
-    { name: 'Policy & Compliance', href: '/privacy-policy' },
-  ];
-
   const finalSocials = [
     { name: 'X', href: '#', icon: faTwitter },
     { name: 'Facebook', href: '#', icon: faFacebookF },
@@ -83,42 +68,8 @@ const Footer = () => {
 
       {/* Main Content */}
       <div className="container mx-auto py+25 px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
-        {/* CTA Section */}
-        <div className="py-16 px-4 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 shadow-xl mb-12">
-          <div className="max-w-[1400px] mx-auto">
-            <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
-              <div className="bg-white rounded-xl shadow-lg flex flex-col md:flex-row items-center px-8 py-8 max-w-3xl w-full">
-                {/* Left: Headline */}
-                <div className="flex-1 text-left mb-6 md:mb-0">
-                  <h2 className="text-3xl md:text-4xl font-bold text-black mb-4 leading-tight">
-                    Travel farther,<br />pay less.<br /><span className="gradient-text-dark">Scan to ride!</span>
-                  </h2>
-                  <ol className="text-gray-800 text-sm list-decimal pl-5">
-                    <li>Download the Seat Ridez app using the QR code</li>
-                    <li>Create your account</li>
-                    <li>Post or Find a ride: Plan your trip itinerary.</li>
-                    <li>Travel Together: Save money and enjoy the journey</li>
-                  </ol>
-                </div>
-                {/* Right: QR code */}
-                <div className="flex flex-col items-center justify-center ml-0 md:ml-8">
-                  <img src={Qrcode} alt="QR Code" className="w-28 h-28 mb-4" />
-                </div>
-              </div>
-
-              {/* Button and App Store Icons */}
-              <div className="flex flex-col items-center ml-0 md:ml-8 mt-8 md:mt-0">
-                <button className="btn-primary group w-full sm:w-auto px-12 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform mb-6">
-                  <span className="relative z-10">Get Started for Free</span>
-                </button>
-                <div className="flex gap-4 flex-wrap justify-center">
-                  <img src={appstore} alt="Apple App Store" className="h-75 w-auto object-contain" />
         
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+ 
 
         {/* Footer Navigation Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
@@ -162,42 +113,31 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Sitemap: Terms and Conditions */}
+          {/* Terms and Conditions Column */}
           <div>
             <h4 className="text-lg font-medium mb-6 uppercase tracking-wide text-blue-300">
               Terms and Conditions
             </h4>
             <ul className="space-y-3">
-              {sitemap.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    to={item.href}
-                    className="text-white/70 hover:text-blue-400 transition-colors text-base"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+              {/* Terms & Conditions Links */}
+              <li><Link to="/TermsAndConditions#accounts-payments" className="text-white/70 hover:text-blue-400 transition-colors text-base">Accounts & Payments</Link></li>
+              <li><Link to="/TermsAndConditions#safety-security" className="text-white/70 hover:text-blue-400 transition-colors text-base">Safety & Security</Link></li>
+              <li><Link to="/TermsAndConditions#legal-compliance" className="text-white/70 hover:text-blue-400 transition-colors text-base">Legal & Compliance</Link></li>
+              <li><Link to="/TermsAndConditions#privacy-conduct" className="text-white/70 hover:text-blue-400 transition-colors text-base">Privacy & User Conduct</Link></li>
             </ul>
           </div>
 
-          {/* Follow Us: Privacy Policy */}
+          {/* Privacy Policy Column */}
           <div>
             <h4 className="text-lg font-medium mb-6 uppercase tracking-wide text-blue-300">
               Privacy Policy
             </h4>
             <ul className="space-y-3">
-              {socialLinks.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    to={item.href}
-                    className="text-white/70 hover:text-blue-400 transition-colors text-base"
-                  >
-                    {/* Removed FontAwesomeIcon here as the original socialLinks data didn't have icons for these */}
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+              {/* Privacy Policy Links */}
+              <li><Link to="/PrivacyPolicy#data-collection" className="text-white/70 hover:text-blue-400 transition-colors text-base">Data Collection & Use</Link></li>
+              <li><Link to="/PrivacyPolicy#privacy-rights" className="text-white/70 hover:text-blue-400 transition-colors text-base">Your Privacy Rights</Link></li>
+              <li><Link to="/PrivacyPolicy#security-retention" className="text-white/70 hover:text-blue-400 transition-colors text-base">Security & Retention</Link></li>
+              <li><Link to="/PrivacyPolicy#policy-compliance" className="text-white/70 hover:text-blue-400 transition-colors text-base">Policy & Compliance</Link></li>
             </ul>
           </div>
         </div>

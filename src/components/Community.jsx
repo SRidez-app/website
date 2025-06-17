@@ -39,7 +39,7 @@ const Community = () => {
   ];
 
   return (
-  <section className="relative pt-24 pb-90 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-transparent">
+  <section className="relative pt+25 pb-90 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-transparent">
 
       {/* Main content */}
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center relative z-10">
@@ -51,10 +51,10 @@ const Community = () => {
           {/* NEW: App Store Icons */}
           <div className="flex justify-center md:justify-end gap-4 mt-4 md:mt-0">
             <a href="#" className="inline-block" aria-label="Download on Google Play">
-              <img src={playstore} alt="Google Play Store" className="h-12 w-auto transition-transform duration-300 hover:scale-105" />
+            
             </a>
             <a href="#" className="inline-block" aria-label="Download on Apple App Store">
-              <img src={appstore} alt="Apple App Store" className="h-12 w-auto transition-transform duration-300 hover:scale-105" />
+              <img src={appstore} alt="Apple App Store" className="h-75 w-auto transition-transform duration-300 hover:scale-105" />
             </a>
           </div>
         </div>
@@ -64,7 +64,7 @@ const Community = () => {
           {/* Left Column: Image Card */}
           <div className="w-full md:w-1/2 flex justify-center mt-8 md:mt-16">
             <div
-              className="relative rounded-2xl border border-blue-500/30 overflow-hidden shadow-2xl bg-black/70 backdrop-blur-sm p-8 w-full max-w-lg"
+              className="relative rounded-2xl border border-blue-500/30 overflow-hidden shadow-2xl bg-black/70 backdrop-blur-sm p-10 w-full max-w-xl"
               style={{
                 backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${communityImage})`,
                 backgroundSize: 'cover',
