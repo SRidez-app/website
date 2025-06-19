@@ -80,13 +80,34 @@ const SignUp = () => {
 
     setIsLoading(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+    const rawPhone = phoneNumber.replace(/\D/g, '');
+    const formattedPhone = `+1${rawPhone}`;
+
+    // Call your sign-up logic (e.g. Supabase)
+    // await supabase.auth.signUp({ email, password }); ← Optional if you're using phone as auth
+
+    // Send OTP via SMS instead of email
+    const smsSent = await sendOtpToPhone(formattedPhone);
+
+    if (!smsSent) {
+      alert('Failed to send OTP. Please verify your phone number.');
       setIsLoading(false);
-      console.log('Sign up attempted with:', formData);
-      alert('Check your email for verification!');
-    }, 2000);
-  };
+      return;
+    }
+
+    // Save user data in localStorage or context for later use
+    localStorage.setItem('new_signup', JSON.stringify({ firstName, lastName, email, phoneNumber }));
+
+    // Navigate to OTP screen with phone number
+    window.location.href = `/verify-otp?phone=${encodeURIComponent(formattedPhone)}`;
+  } catch (err) {
+    console.error('Signup error:', err);
+    alert('Something went wrong. Please try again.');
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const handleGoogleSignIn = () => {
     console.log('Google sign in clicked');
