@@ -8,7 +8,7 @@ const Header = () => {
   const navItems = [
     // { label: 'Home', href: '/' }, // This was commented out in your original
     { label: 'About us', href: '/about-us' },
-    { label: 'Login', href: '/login' },
+    // { label: 'Login', href: '/login' },
     { label: 'How it works', href: '/how-it-works' },
   ];
 
@@ -23,11 +23,16 @@ const Header = () => {
     // Increase z-index significantly to ensure it's on top
     // Also, ensure the header is truly `fixed` relative to the viewport.
     <header className="fixed top-0 left-0 right-0 z-[9999] px-4 py-3"> {/* Increased z-index */}
-      <div className="max-w-2xl mx-auto"> {/* Keep max-width here if desired, but ensure it doesn't limit overall header interaction */}
-        <nav
+     <div className="max-w-md mx-auto"> {/* Keep max-width here if desired, but ensure it doesn't limit overall header interaction   <div className="max-w-2xl mx-auto"> */}
+        {/* <nav
           className="flex items-center justify-between rounded-full px-6"
           style={navStyle}
-        >
+        >*/}
+<nav
+  className="flex items-center justify-start gap-8 rounded-full px-6"
+  style={navStyle}
+>
+  
           {/* Logo */}
           <div className="flex items-center translate-y-[-2px]">
             <Link to="/" className="flex items-center gap-2">
@@ -45,7 +50,8 @@ const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* <div className="hidden md:flex items-center gap-8"> BIGGER GAP*/}
+          <div className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <Link
                 key={item.label}
@@ -57,12 +63,12 @@ const Header = () => {
             ))}
 
             {/* Join Now Button */}
-            <Link
+            {/* <Link
               to="/signup"
               className="bg-white text-black text-base font-medium px-6 h-10 rounded-full hover:bg-white/90 transition-all flex items-center"
             >
               Join Now
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile Menu Button */}

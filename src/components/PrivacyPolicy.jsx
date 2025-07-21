@@ -28,6 +28,17 @@ const PrivacyPolicy = () => {
     { id: 'section12', title: 'Contact Us', number: '12.' }
   ];
 
+ // Add this useEffect for hash scrolling
+useEffect(() => {
+  const hash = window.location.hash;
+  if (hash) {
+    const element = document.querySelector(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}, []);
+
   // Scroll spy effect
   useEffect(() => {
     const handleScroll = () => {
@@ -75,7 +86,7 @@ const PrivacyPolicy = () => {
   const floatingElements = generateFloatingElements();
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+   <div className="min-h-screen relative bg-gradient-to-br  from-slate-900 via-purple-900 to-slate-900">
       {/* Animated Background */}
       <div className="absolute inset-0">
         {/* Animated gradient overlay */}
@@ -122,28 +133,29 @@ const PrivacyPolicy = () => {
       </div>
 
       {/* Content */}
-       <div className="relative z-10 min-h-screen pt-20">
+    <div className="relative z-10 min-h-screen pt-20">
+
         {/* Header */}
         <div className="text-center pt-8 pb-6 px-4">
-          <button className="text-white/60 hover:text-white text-sm transition-colors flex items-center gap-2 mx-auto mb-6">
+          {/* <button className="text-white/60 hover:text-white text-sm transition-colors flex items-center gap-2 mx-auto mb-6">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Back to Home
-          </button>
+          </button> */}
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             <span className="gradient-text">Privacy Policy</span>
           </h1>
-          <p className="text-white/70 text-lg">Seat Ridez Privacy Policy</p>
+          <p className="text-white/70 text-lg">Seat Ridez Terms & Conditions</p>
           <p className="text-white/60 text-base mt-2">Effective Date: 2/1/2025</p>
         </div>
 
-      {/* Main Layout with Sidebar */}
+        {/* Main Layout with Sidebar */}
         <div className="max-w-7xl mx-auto px-4 pb-12 flex gap-8">
           
           {/* Table of Contents Sidebar */}
-    <div className="hidden lg:block w-80 flex-shrink-0">
-  <div className="sticky top-8 z-40" style={{ position: 'sticky', top: '2rem' }}>
+          <div className="hidden lg:block w-80 flex-shrink-0">
+            <div className="sticky top-8">
               <div 
                 className="backdrop-blur-xl rounded-2xl p-6 border border-white/20 shadow-xl"
                 style={{

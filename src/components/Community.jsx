@@ -49,14 +49,14 @@ const Community = () => {
             <span className="gradient-text">We got you covered!</span>
           </h2>
           {/* NEW: App Store Icons */}
-          <div className="flex justify-center md:justify-end gap-4 mt-4 md:mt-0">
+          {/* <div className="flex justify-center md:justify-end gap-4 mt-4 md:mt-0">
             <a href="#" className="inline-block" aria-label="Download on Google Play">
             
             </a>
             <a href="#" className="inline-block" aria-label="Download on Apple App Store">
               <img src={appstore} alt="Apple App Store" className="h-75 w-auto transition-transform duration-300 hover:scale-105" />
             </a>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom Row: Two Columns */}

@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
-import step1 from '../assets/p2.png';
-import step2 from '../assets/p1.png';
-import step3 from '../assets/p3.png';
-import step4 from '../assets/p4.png';
+import step1 from '../assets/signup.png';
+import step2 from '../assets/plan.png';
+import step3 from '../assets/preference.png';
+import step4 from '../assets/dashboard.png';
 
 const steps = [
   {
