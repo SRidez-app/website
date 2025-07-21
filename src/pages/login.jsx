@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Footer from "../components/Newfooter";
-
 
 
 const Login = () => {
@@ -311,7 +309,7 @@ const Login = () => {
         }
       `}</style>
     
-       <Footer/>
+    
       </div>
   );
 };
