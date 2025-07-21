@@ -106,13 +106,13 @@ const Header = () => {
               </Link>
             ))}
             {/* Add Join Now button to mobile menu too if desired */}
-            <Link
+            {/* <Link
               to="/signup"
               className="block py-2 px-4 mt-2 bg-white text-black text-base font-medium rounded-lg text-center hover:bg-white/90 transition-all"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Join Now
-            </Link>
+            </Link> */}
           </div>
         )}
       </div>
