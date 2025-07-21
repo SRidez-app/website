@@ -22,29 +22,16 @@ const TermsAndConditions = () => {
     { id: 'section13', title: 'Conclusion', number: '13.' }
   ];
 
-  <div className="px-6 pt-32 pb-16 text-white bg-background min-h-screen">
-  <h1 className="text-3xl font-bold mb-6">Terms and Conditions</h1>
-
-  <section id="accounts-payments" className="mb-8">
-    <h2 className="text-xl font-semibold">Accounts & Payments</h2>
-    <p>...</p>
-  </section>
-
-  <section id="safety-security" className="mb-8">
-    <h2 className="text-xl font-semibold">Safety & Security</h2>
-    <p>...</p>
-  </section>
-
-  <section id="legal-compliance" className="mb-8">
-    <h2 className="text-xl font-semibold">Legal & Compliance</h2>
-    <p>...</p>
-  </section>
-
-  <section id="privacy-conduct" className="mb-8">
-    <h2 className="text-xl font-semibold">Privacy & User Conduct</h2>
-    <p>...</p>
-  </section>
-</div>
+ // Add this useEffect for hash scrolling
+useEffect(() => {
+  const hash = window.location.hash;
+  if (hash) {
+    const element = document.querySelector(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}, []);
 
   // Scroll spy effect
   useEffect(() => {
@@ -144,12 +131,12 @@ const TermsAndConditions = () => {
 
         {/* Header */}
         <div className="text-center pt-8 pb-6 px-4">
-          <button className="text-white/60 hover:text-white text-sm transition-colors flex items-center gap-2 mx-auto mb-6">
+          {/* <button className="text-white/60 hover:text-white text-sm transition-colors flex items-center gap-2 mx-auto mb-6">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Back to Home
-          </button>
+          </button> */}
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
             <span className="gradient-text">Terms & Conditions</span>
           </h1>

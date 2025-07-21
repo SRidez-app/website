@@ -81,12 +81,12 @@ const CommunityFirst = () => {
               <br /><br />Welcome to <span className="font-semibold text-cyan-400">Seat Ridez</span>.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn-primary group w-full sm:w-auto px-12 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform">
+              {/* <button className="btn-primary group w-full sm:w-auto px-12 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform">
                 <span className="relative z-10">Sign up</span>
               </button>
               <button className="btn-secondary group w-full sm:w-auto px-12 py-3 rounded-full bg-white/10 backdrop-blur-xl text-white font-semibold text-base border border-white/30 shadow-lg hover:bg-white/20 hover:border-blue-400 transition-all duration-300 hover:scale-105 transform">
                 Download Now
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

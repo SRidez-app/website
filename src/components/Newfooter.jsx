@@ -1,3 +1,4 @@
+// Updated Footer.jsx with proper routing
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -8,21 +9,36 @@ import {
   faYoutube
 } from '@fortawesome/free-brands-svg-icons';
 import logo from '../assets/logoFooter.png';
-import appstore from '../assets/appstore.png'; // Assuming this path
-import playstore from '../assets/star.png'; // Assuming a placeholder for Play Store if not already there
+import appstore from '../assets/appstore.png';
+import playstore from '../assets/star.png';
 import { Link } from "react-router-dom";
-import footerLogo from '../assets/footerlogo.png'; // This might be redundant if 'logo' is already for the footer
+import footerLogo from '../assets/footerlogo.png';
 import Qrcode from '../assets/Qrcode.png';
 
 
-const Footer = () => {
-  const columnOne = [
-    { name: 'What is Seat Ridez? ', href: '#' },
-    { name: 'Why Choose Us? ', href: '#' },
-    { name: 'How It Works ', href: '#' },
-    { name: 'Our Story', href: '#' },
-  ];
 
+const Footer = () => {
+const columnOne = [
+  { name: 'What is Seat Ridez? ', href: '/about-us' },
+  { name: 'Why Choose Us? ', href: '/about-us' },
+  { name: 'How It Works ', href: '/how-it-works' },
+  { name: 'Our Story', href: '/about-us' },
+];
+
+const sitemap = [
+  { name: 'Accounts & Payments ', href: '/TermsAndConditions#accounts-payments' },
+  { name: 'Safety & Security ', href: '/TermsAndConditions#safety-security' },
+  { name: 'Legal & Compliance ', href: '/TermsAndConditions#legal-compliance' },
+  { name: 'Privacy & User Conduct ', href: '/TermsAndConditions#privacy-conduct' },
+];
+
+  // Updated social links to route to Privacy Policy with specific sections
+const socialLinks = [
+  { name: 'Data Collection & Use', href: '/PrivacyPolicy#section1' },
+  { name: 'Your Privacy Rights', href: '/PrivacyPolicy#section4' },
+  { name: 'Security & Retention', href: '/PrivacyPolicy#section5' },
+  { name: 'Policy & Compliance', href: '/PrivacyPolicy#section10' },
+];
   const finalSocials = [
     { name: 'X', href: '#', icon: faTwitter },
     { name: 'Facebook', href: '#', icon: faFacebookF },
@@ -31,17 +47,14 @@ const Footer = () => {
     { name: 'YouTube', href: '#', icon: faYoutube },
   ];
 
-
   return (
-    <footer  className="relative pt-24 pb-90 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-transparent"     
-    >
-
-
+    <footer className="relative pt-24 pb-90 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[600px] lg:min-h-[700px] flex items-center justify-center bg-transparent">
+      
       {/* Floating elements (simplified) */}
       {[...Array(10)].map((_, i) => (
         <div
           key={i}
-          className="absolute rounded-full bg-white/5 backdrop-blur-sm" // Lighter opacity for footer
+          className="absolute rounded-full bg-white/5 backdrop-blur-sm"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -56,7 +69,7 @@ const Footer = () => {
 
       {/* Grid Pattern */}
       <div
-        className="absolute inset-0 opacity-8" // Adjusted opacity for footer
+        className="absolute inset-0 opacity-8"
         style={{
           backgroundImage: `
             linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
@@ -69,10 +82,9 @@ const Footer = () => {
       {/* Main Content */}
       <div className="container mx-auto py+25 px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
         
- 
-
         {/* Footer Navigation Columns */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mt-12">
+          
           {/* Logo and Newsletter - Left Side */}
           <div className="lg:col-span-2">
             <div className="flex flex-col items-start gap-3 mb-6">
@@ -100,44 +112,54 @@ const Footer = () => {
               About Us
             </h4>
             <ul className="space-y-3">
-              {columnOne.map((item) => (
-                <li key={item.name}>
-                  <a
-                    href={item.href}
-                    className="text-white/70 hover:text-blue-400 transition-colors text-base"
-                  >
-                    {item.name}
-                  </a>
-                </li>
-              ))}
+          {columnOne.map((item) => (
+  <li key={item.name}>
+    <Link
+      to={item.href}
+      className="text-white/70 hover:text-blue-400 transition-colors text-base"
+    >
+      {item.name}
+    </Link>
+  </li>
+))}
             </ul>
           </div>
 
-          {/* Terms and Conditions Column */}
+          {/* Sitemap: Terms and Conditions */}
           <div>
             <h4 className="text-lg font-medium mb-6 uppercase tracking-wide text-blue-300">
               Terms and Conditions
             </h4>
             <ul className="space-y-3">
-              {/* Terms & Conditions Links */}
-              <li><Link to="/TermsAndConditions#accounts-payments" className="text-white/70 hover:text-blue-400 transition-colors text-base">Accounts & Payments</Link></li>
-              <li><Link to="/TermsAndConditions#safety-security" className="text-white/70 hover:text-blue-400 transition-colors text-base">Safety & Security</Link></li>
-              <li><Link to="/TermsAndConditions#legal-compliance" className="text-white/70 hover:text-blue-400 transition-colors text-base">Legal & Compliance</Link></li>
-              <li><Link to="/TermsAndConditions#privacy-conduct" className="text-white/70 hover:text-blue-400 transition-colors text-base">Privacy & User Conduct</Link></li>
+              {sitemap.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.href}
+                    className="text-white/70 hover:text-blue-400 transition-colors text-base"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Privacy Policy Column */}
+          {/* Privacy Policy Section */}
           <div>
             <h4 className="text-lg font-medium mb-6 uppercase tracking-wide text-blue-300">
               Privacy Policy
             </h4>
             <ul className="space-y-3">
-              {/* Privacy Policy Links */}
-              <li><Link to="/PrivacyPolicy#data-collection" className="text-white/70 hover:text-blue-400 transition-colors text-base">Data Collection & Use</Link></li>
-              <li><Link to="/PrivacyPolicy#privacy-rights" className="text-white/70 hover:text-blue-400 transition-colors text-base">Your Privacy Rights</Link></li>
-              <li><Link to="/PrivacyPolicy#security-retention" className="text-white/70 hover:text-blue-400 transition-colors text-base">Security & Retention</Link></li>
-              <li><Link to="/PrivacyPolicy#policy-compliance" className="text-white/70 hover:text-blue-400 transition-colors text-base">Policy & Compliance</Link></li>
+              {socialLinks.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.href}
+                    className="text-white/70 hover:text-blue-400 transition-colors text-base"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -165,7 +187,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Re-add the styles block from the Hero component for animations and gradients */}
+      {/* Styles */}
       <style jsx>{`
         .gradient-text {
           background: linear-gradient(135deg, #3b82f6 0%, #06b6d4 50%, #8b5cf6 100%);
@@ -175,7 +197,7 @@ const Footer = () => {
           animation: gradient-shift 3s ease-in-out infinite alternate;
         }
 
-        .gradient-text-dark { /* A variant for text on white background */
+        .gradient-text-dark {
           background: linear-gradient(135deg, #1a56db 0%, #0891b2 50%, #7c3aed 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;

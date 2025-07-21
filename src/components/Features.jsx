@@ -140,7 +140,7 @@ const Features = () => {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8">
+        {/* <div className="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-8">
           <button className="group relative px-16 py-4 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform overflow-hidden">
             <span className="relative z-10">Sign up</span>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -149,7 +149,7 @@ const Features = () => {
             <span className="relative z-10">Download Now</span>
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
           </button>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`

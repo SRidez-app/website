@@ -137,12 +137,19 @@ const Hero = () => {
             <span className="font-medium text-white"> Set your own price, choose driver and passenger genders, and match based on preferences that matter to you.</span>
           </p>
 
-          <h2 className="text-white pt-6 pb-12 hero-subtitle-2">
+          <h2 className="text-white pt-6 pb-8 hero-subtitle-2">
             This is carpooling, reimagined
           </h2>
 
+          {/* COMING SOON - Big Bold Letters */}
+          <div className="coming-soon-container mt-50 mb-2">
+            <h3 className="coming-soon-text">
+              COMING SOON
+            </h3>
+          </div>
+
           {/* Buttons */}
-          <div className="w-full max-w-lg flex justify-center mb-12 hero-buttons">
+          {/* <div className="w-full max-w-lg flex justify-center mb-12 hero-buttons">
             <div className="flex gap-4 md:gap-12 lg:gap-12 w-full max-w-md justify-center flex-wrap">
               <button className="btn-primary group w-full sm:w-auto px-12 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform">
                 <span className="relative z-10">Offer a ride</span>
@@ -151,7 +158,7 @@ const Hero = () => {
                 Find a ride
               </button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -193,6 +200,44 @@ const Hero = () => {
           animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
+        .coming-soon-container {
+          animation: fadeInUp 0.8s ease-out 0.5s both, pulse 2s ease-in-out infinite;
+        }
+
+        .coming-soon-text {
+          font-size: clamp(2.5rem, 6vw, 4rem);
+          font-weight: 900;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          background: linear-gradient(135deg, #ef4444 0%, #f59e0b 50%, #eab308 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-shadow: 0 8px 32px rgba(239, 68, 68, 0.4);
+          margin: 0;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          filter: drop-shadow(0 4px 12px rgba(239, 68, 68, 0.3));
+        }
+
+        .coming-soon-container {
+          animation: fadeInUp 0.8s ease-out 0.5s both, pulse 2s ease-in-out infinite;
+        }
+
+        .coming-soon-text {
+          font-size: clamp(2.5rem, 6vw, 4rem);
+          font-weight: 900;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          background: linear-gradient(135deg, #ef4444 0%, #f59e0b 50%, #eab308 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-shadow: 0 8px 32px rgba(239, 68, 68, 0.4);
+          margin: 0;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          filter: drop-shadow(0 4px 12px rgba(239, 68, 68, 0.3));
+        }
+
         .hero-buttons {
           animation: fadeInUp 0.8s ease-out 0.6s both;
         }
@@ -229,6 +274,28 @@ const Hero = () => {
           100% { 
             background-position: 0% 50%;
             filter: hue-rotate(360deg);
+          }
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+            filter: drop-shadow(0 4px 12px rgba(239, 68, 68, 0.3));
+          }
+          50% {
+            transform: scale(1.02);
+            filter: drop-shadow(0 6px 20px rgba(239, 68, 68, 0.5));
+          }
+        }
+
+        @keyframes pulse {
+          0%, 100% {
+            transform: scale(1);
+            filter: drop-shadow(0 4px 12px rgba(239, 68, 68, 0.3));
+          }
+          50% {
+            transform: scale(1.02);
+            filter: drop-shadow(0 6px 20px rgba(239, 68, 68, 0.5));
           }
         }
 

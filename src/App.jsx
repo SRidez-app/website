@@ -20,7 +20,7 @@ import ProfilePictureUpload from './signup/profilepictureupload';
 import Verification from './signup/verification';
 import ForgotEmail from './signup/forgotemail';
 import Authenticate from './signup/authenticate';
-
+import AboutUs from './components/AboutUs'; 
 
 import './index.css';
 
@@ -57,7 +57,7 @@ function App() {
 } />
 
        {/* <Route path="/pricing" element={<Pricing />} /> */}
-        <Route path="/about-us" element={<div className="p-8">About Page Coming Soon</div>} />
+    
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
      <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
@@ -69,7 +69,7 @@ function App() {
      <Route path="/verification" element={<Verification />} />
      <Route path="/forgotemail" element={<ForgotEmail />} />
      <Route path="/authenticate" element={<Authenticate/>} />
-
+<Route path="/about-us" element={<AboutUs />} />
 
 
 
