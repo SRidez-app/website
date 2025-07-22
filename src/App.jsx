@@ -21,6 +21,7 @@ import Verification from './signup/verification';
 import ForgotEmail from './signup/forgotemail';
 import Authenticate from './signup/authenticate';
 import AboutUs from './components/AboutUs'; 
+import NewsletterPopup from './components/NewsletterPopup'; 
 
 import './index.css';
 
@@ -78,6 +79,8 @@ function App() {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/join" element={<div className="p-8">Join Page Coming Soon</div>} />
       </Routes>
+           <NewsletterPopup />
+           
     </Layout>
   );
 }
