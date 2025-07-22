@@ -5,8 +5,6 @@ import {
   faFacebookF,
   faInstagram,
   faTwitter,
-  faLinkedinIn,
-  faYoutube
 } from '@fortawesome/free-brands-svg-icons';
 import logo from '../assets/logoFooter.png';
 import { Link } from "react-router-dom";
@@ -62,8 +60,6 @@ const Footer = () => {
       href: 'https://www.instagram.com/seatridez/', 
       icon: faInstagram 
     },
-    { name: 'LinkedIn', href: '#', icon: faLinkedinIn },
-    { name: 'YouTube', href: '#', icon: faYoutube },
   ];
 
   // Email validation
