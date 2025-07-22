@@ -153,7 +153,7 @@ const NewsletterPopup = () => {
 
   return (
     <div 
-      className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-300 ${
+      className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center p-4 pt-20 sm:pt-4 transition-opacity duration-300 ${
         isClosing ? 'opacity-0' : 'opacity-100'
       }`}
       onClick={handleBackdropClick}
@@ -162,6 +162,7 @@ const NewsletterPopup = () => {
         className={`bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 relative overflow-hidden transform transition-all duration-300 ${
           isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'
         }`}
+        style={{ marginTop: 'env(safe-area-inset-top, 0px)' }}
       >
         {/* Close button - Black background with white X */}
         <button
@@ -174,7 +175,7 @@ const NewsletterPopup = () => {
 
         {/* Header with gradient */}
         <div className="bg-gradient-to-r from-blue-500 to-cyan-500 p-6 text-white text-center">
-          <h2 className="text-2xl font-bold mb-2">Insider Commute Scoop! 🚗</h2>
+          <h2 className="text-2xl font-bold mb-2">Insider Commute Scoop! </h2>
           <p className="text-blue-100 text-sm">
             Stay in the loop with Seat Ridez!
           </p>
