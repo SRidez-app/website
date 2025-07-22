@@ -167,7 +167,7 @@ const NewsletterPopup = () => {
         {/* Close button - Black background with white X */}
         <button
           onClick={closePopup}
-          className="absolute top-4 right-4 z-10 bg-black hover:bg-gray-800 rounded-full p-2 transition-colors"
+          className="absolute top-2 right-2 z-10 bg-black hover:bg-gray-800 rounded-full p-1.5 transition-colors"
           aria-label="Close popup"
         >
           <span className="text-white text-lg font-bold">×</span>
